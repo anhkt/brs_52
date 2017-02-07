@@ -4,6 +4,7 @@ en:
   home: "Home"
   login: "Login"
   logout: "Logout"
+  category: "Category"
   slogan: "Meet your next favourite book"
   sign_up_now: "Sign Up Now!"
   framgia: "Framgia VietNam"
@@ -18,6 +19,7 @@ en:
       invalid_login: "Invalid email/password combination"
       not_logged_in: "Not logged in"
       user_not_exist: "User does not exist"
+      user_not_admin: "User doesn't admin"
 
   user:
     signup: "Sign up"
@@ -25,3 +27,8 @@ en:
     registered_successfully: "Registered successfully! You can login right now."
     button:
       create_account: "Create my account"
+
+  admins:
+    categories:
+      index:
+        new: "New Category"
