@@ -17,6 +17,7 @@ en:
       please_log_in: "Please log in"
       invalid_login: "Invalid email/password combination"
       not_logged_in: "Not logged in"
+      user_not_exist: "User does not exist"
 
   user:
     signup: "Sign up"
