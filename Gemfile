@@ -20,6 +20,9 @@ gem "bootstrap-sass"
 gem "bcrypt"
 gem "faker"
 gem "config"
+gem "carrierwave"
+gem "mini_magick"
+gem "fog"
 
 group :development, :test do
   gem "byebug", platform: :mri
