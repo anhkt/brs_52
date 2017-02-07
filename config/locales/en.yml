@@ -3,6 +3,16 @@ en:
   title_page: "Book Review System"
   home: "Home"
   login: "Login"
+  logout: "Logout"
   slogan: "Meet your next favourite book"
   sign_up_now: "Sign Up Now!"
   framgia: "Framgia VietNam"
+  remember_me: "Remember me"
+  error: "error"
+  error_form: "The form contains"
+
+  flash:
+    danger:
+      please_log_in: "Please log in"
+      invalid_login: "Invalid email/password combination"
+      not_logged_in: "Not logged in"

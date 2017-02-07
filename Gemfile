@@ -17,6 +17,9 @@ gem "jbuilder", "~> 2.5"
 gem "will_paginate"
 gem "bootstrap-will_paginate"
 gem "bootstrap-sass"
+gem "bcrypt"
+gem "faker"
+gem "config"
 
 group :development, :test do
   gem "byebug", platform: :mri
