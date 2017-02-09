@@ -1,8 +1,9 @@
 class Admins::CategoriesController < ApplicationController
   before_action :logged_in_user, :verify_admin
+  before_action :find_category, only: [:edit, :update, :destroy]
 
   def index
-    @categories = Category.all
+    @categories = Category.all.order created_at: :desc
     @category = Category.new
   end
 
@@ -16,8 +17,31 @@ class Admins::CategoriesController < ApplicationController
     end
   end
 
+  def update
+    if @category.update_attributes category_params
+      flash[:success] = t "flash.success.update_category"
+    else
+      flash[:danger] = t "flash.danger.category_not_update"
+    end
+    redirect_to admins_categories_path
+  end
+
+  def destroy
+    @category.destroy
+    flash[:success] = t "flash.success.delete_category"
+    redirect_to admins_categories_path
+  end
+
   private
   def category_params
     params.require(:category).permit :name
+  end
+
+  def find_category
+    @category = Category.find_by id: params[:id]
+    unless @category
+      flash[:danger] = t "flash.danger.category_not_found"
+      redirect_to admins_categories_path
+    end
   end
 end
