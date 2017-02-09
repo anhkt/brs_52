@@ -29,10 +29,10 @@ ActiveRecord::Schema.define(version: 20170206104735) do
     t.string   "image"
     t.datetime "publish_date"
     t.integer  "number_of_pages"
-    t.integer  "catefory_id"
+    t.integer  "category_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.index ["catefory_id"], name: "index_books_on_catefory_id"
+    t.index ["category_id"], name: "index_books_on_category_id"
   end
 
   create_table "categories", force: :cascade do |t|

@@ -3,6 +3,7 @@
   <h1><%= t "welcome" %></h1>
   <h1><%= t "title_page" %></h1>
   <h2><%= t "slogan" %></h2>
-  <%= link_to t("sign_up_now"), new_user_path,
-    class: "btn btn-lg btn-primary" %>
+  <% unless logged_in? %>
+    <%= link_to t("sign_up_now"), new_user_path, class: "btn btn-lg btn-primary" %>
+  <% end %>
 </div>

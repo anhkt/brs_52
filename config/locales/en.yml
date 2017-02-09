@@ -19,6 +19,7 @@ en:
   delete: "Delete"
   update: "Update"
   confirm: "Confirm"
+  books: Books
 
   flash:
     danger:
@@ -29,6 +30,7 @@ en:
       user_not_admin: "User doesn't admin"
       category_not_found: "Category not found"
       category_not_update: "Category wasn't updated"
+      book_not_exist: "Book does not exist"
     success:
       delete_category: "Category was successfully deleted"
       update_category: "Category was successfully updated"
@@ -49,3 +51,13 @@ en:
     categories:
       index:
         new: "New Category"
+
+  book:
+    all: "All Books"
+    by: "by"
+    publish_date: "Publish date: "
+    pages: "Number of pages: "
+
+  time:
+    formats:
+      default: "%d-%m-%Y"

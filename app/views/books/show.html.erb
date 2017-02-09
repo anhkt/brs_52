@@ -1,0 +1,17 @@
+<% provide :title, @book.title %>
+
+<div class="row">
+  <div class="col-md-8">
+    <h3><b><%= @book.title %></b></h3>
+    <i><%= t "book.by" %></i> <%= @book.author %><br>
+    <div class="col-md-12">
+      <div class="book-description">
+        <%= @book.description %>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <b><%= t "book.publish_date" %></b><%= l @book.publish_date %></br>
+      <b><%= t "book.pages" %></b><%= @book.number_of_pages %>
+    </div>
+  </div>
+</div>
