@@ -15,6 +15,10 @@ en:
   account: "Account"
   profile: "Profile"
   settings: "Settings"
+  edit: "Edit"
+  delete: "Delete"
+  update: "Update"
+  confirm: "Confirm"
 
   flash:
     danger:
@@ -23,6 +27,11 @@ en:
       not_logged_in: "Not logged in"
       user_not_exist: "User does not exist"
       user_not_admin: "User doesn't admin"
+      category_not_found: "Category not found"
+      category_not_update: "Category wasn't updated"
+    success:
+      delete_category: "Category was successfully deleted"
+      update_category: "Category was successfully updated"
 
   user:
     signup: "Sign up"
