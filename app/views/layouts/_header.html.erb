@@ -4,6 +4,7 @@
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to t("home"), root_path, id: "head" %></li>
+        <li><%= link_to t("books"), books_path, id: "head" %></li>
         <% if logged_in? %>
           <% if current_user.admin? %>
             <li><%= link_to t("category"), admins_categories_path, id: "head" %></li>
