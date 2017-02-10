@@ -1,23 +1,25 @@
 <%= provide :title, t("category") %>
-<div class="col-md-12">
-  <h2><%= t "category" %></h2>
-  <div class="col-md-6">
-    <div class="col-md-3 listButton btn-primary">
-      <p><%= t ".new" %></p>
-    </div></br></br>
+<div class="container">
+  <div class="col-md-12">
+    <h2><%= t "category" %></h2>
+    <div class="col-md-6">
+      <div class="listButton btn btn-primary">
+        <p><%= t ".new" %></p>
+      </div></br>
 
-    <div>
-      <%= form_for [:admins, @category], remote: true do |f| %>
-        <%= f.label :name %><br>
-        <%= f.text_field :name %>
-        <%= f.submit %>
-      <% end %>
+      <div>
+        <%= form_for [:admins, @category], remote: true do |f| %>
+          <%= f.label :name %><br>
+          <%= f.text_field :name %>
+          <%= f.submit %>
+        <% end %>
+      </div>
     </div>
-  </div>
 
-  <div class="col-md-6 categories">
-    <ol class="category">
-      <%= render @categories %>
-    </ol>
+    <div class="col-md-6 categories">
+      <ol class="category">
+        <%= render @categories %>
+      </ol>
+    </div>
   </div>
 </div>

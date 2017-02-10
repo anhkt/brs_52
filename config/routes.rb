@@ -11,5 +11,6 @@ Rails.application.routes.draw do
 
   namespace :admins do
     resources :categories, except: [:new, :show]
+    resources :books, except: [:edit, :update, :delete]
   end
 end
