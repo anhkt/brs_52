@@ -5,15 +5,17 @@
 </div></br>
 
 <div class="container">
-  <div class="card">
-    <div class="col-md-12">
-      <% @books.each do |book| %>
-        <div class="col-md-4">
-          <%= book_image book %>
-          <h5><%= link_to book.title, admins_book_path(book) %></h5>
-          <%= book.author %>
+  <div class="col-md-12">
+    <% @books.each do |book| %>
+      <div class="col-md-3">
+        <div class="card">
+          <div class="book-image"><%= book_image book %></div>
+          <div class="container">
+            <h5><%= link_to book.title.truncate(Settings.book_title), admins_book_path(book) %></h5>
+            <%= book.author %>
+          </div>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
 </div>

@@ -1,6 +1,6 @@
 class Admins::BooksController < ApplicationController
   before_action :logged_in_user, :verify_admin
-  before_action :find_book, only: :show
+  before_action :find_book, except: [:index, :new, :create]
 
   def index
     @books = Book.all
@@ -25,6 +25,24 @@ class Admins::BooksController < ApplicationController
   def show
   end
 
+  def edit
+    @categories = Category.all
+  end
+
+  def update
+    if @book.update_attributes book_params
+      flash[:success] = t "flash.success.book_update"
+    else
+      flash[:danger] = t "flash.danger.book_not_update"
+    end
+    redirect_to admins_book_path @book
+  end
+
+  def destroy
+    @book.destroy
+    flash[:danger] = t "flash.success.book_delete"
+    redirect_to admins_books_path
+  end
   private
   def book_params
     params.require(:book).permit :title, :author, :description, :publish_date,
