@@ -1,9 +1,17 @@
 module BooksHelper
   def book_image book
     if book.image.blank?
-      image_tag "https://c2.staticflickr.com/6/5828/23114683296_880a14ecea_o.jpg"
+      image_tag "book.jpg", size: Settings.book_size
     else
-      image_tag book.image.url
+      image_tag book.image.thumb.to_s
+    end
+  end
+
+  def book_image_show book
+    if book.image.blank?
+      image_tag "book.jpg", size: Settings.book_size_show
+    else
+      image_tag book.image.book_size.to_s
     end
   end
 
