@@ -5,6 +5,7 @@ en:
   login: "Login"
   logout: "Logout"
   category: "Category"
+  books: "Book"
   slogan: "Meet your next favourite book"
   sign_up_now: "Sign Up Now!"
   framgia: "Framgia VietNam"
@@ -21,6 +22,8 @@ en:
   confirm: "Confirm"
   books: "Book"
   search: "Search"
+  all_book: "All Books"
+  add_book: "Add new book"
 
   flash:
     danger:
@@ -31,10 +34,11 @@ en:
       user_not_admin: "User doesn't admin"
       category_not_found: "Category not found"
       category_not_update: "Category wasn't updated"
-      book_not_found: "Book does not exist"
+      book_not_found: "Book not found"
     success:
       delete_category: "Category was successfully deleted"
       update_category: "Category was successfully updated"
+      book_create: "Book was successfully created"
 
   user:
     signup: "Sign up"
@@ -52,15 +56,21 @@ en:
     categories:
       index:
         new: "New Category"
+    books:
+      new:
+        create_book: "Create new Book"
+        number_of_book: "The number of pages"
 
   book:
     all: "All Books"
     by: "by"
     publish_date: "Publish date: "
-    pages: "Number of pages: "
     search:
       placeholder: "Search books..."
       category_blank: "- All books -"
+    pages: "The number of pages: "
+    category: "Category: "
+    description: "Description: "
 
   time:
     formats:

@@ -4,6 +4,14 @@ class Book < ApplicationRecord
   has_many :reviews
   has_many :userbooks
 
+  mount_uploader :image, ImageUploader
+
+  validates :title, presence: true
+  validates :author, presence: true
+  validates :description, presence: true
+  validates :number_of_pages, presence: true
+  validates :category, presence: true
+
   scope :search_book_by_search_params, -> search_param do
     where "title LIKE ? OR author LIKE ?",
       "%#{search_param}%", "%#{search_param}%" if search_param.present?
