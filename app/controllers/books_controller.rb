@@ -6,7 +6,9 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find_by id: params[:id]
-    unless @book
+    if @book
+      @reviews = @book.reviews.order(created_at: :desc)
+    else
       flash[:danger] = t "flash.danger.book_not_found"
       redirect_to books_path
     end
