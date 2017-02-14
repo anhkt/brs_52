@@ -24,6 +24,10 @@ en:
   search: "Search"
   all_book: "All Books"
   add_book: "Add new book"
+  rating: "Rating"
+  review: "Review"
+  rate: "Rate"
+  posted_ago: "Posted %{time} ago"
 
   flash:
     danger:
@@ -42,6 +46,7 @@ en:
       book_create: "Book was successfully created"
       book_delete: "Book was successfully deleted"
       book_update: "Book was successfully updated"
+      create_review: "Create review successful"
 
   user:
     signup: "Sign up"
@@ -54,6 +59,14 @@ en:
     button:
       create_account: "Create my account"
       save_changes: "Save changes"
+    reviews:
+      your_review: "(Add your review)"
+      community_review: "COMMUNITY REVIEWS"
+      rate_it: " rate it %{rate}/5"
+      blank: "- Rate -"
+      content: "What do you think?"
+      button_post: "Post review"
+      new: " > Review"
 
   admins:
     categories:
@@ -76,6 +89,9 @@ en:
     pages: "The number of pages: "
     category: "Category: "
     description: "Description: "
+    search:
+      placeholder: "Search books..."
+      category_blank: "- All books -"
 
   time:
     formats:

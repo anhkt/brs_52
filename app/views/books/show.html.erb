@@ -1,6 +1,9 @@
 <% provide :title, @book.title %>
 
 <div class="row">
+  <div class="col-md-4">
+    <%= book_image_show @book %>
+  </div>
   <div class="col-md-8">
     <h3><b><%= @book.title %></b></h3>
     <i><%= t "book.by" %></i> <%= @book.author %><br>
@@ -14,4 +17,29 @@
       <b><%= t "book.pages" %></b><%= @book.number_of_pages %>
     </div>
   </div>
+</div>
+
+<p class="review-title">
+  <%= t "user.reviews.community_review" %>
+  <% unless @reviews.pluck(:user_id).include? current_user.id %>
+    <%= link_to t("user.reviews.your_review"), new_review_path(id: @book) %>
+  <% end %>
+</p>
+<div class="reviews">
+  <ul>
+    <% @reviews.each do |review| %>
+      <li>
+        <div class="col-md-12">
+          <%= link_to review.user.name, user_path(review.user) %>
+          <%= t "user.reviews.rate_it", rate: review.rating %>
+        </div>
+        <div class="col-md-12">
+          <%= review.content %>
+          <p class="timestamp">
+            <%= t "posted_ago", time: time_ago_in_words(review.created_at) %>
+          </p>
+        </div>
+      </li>
+    <% end %>
+  </ul>
 </div>
