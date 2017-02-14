@@ -20,24 +20,30 @@
 </div>
 
 <p class="review-title">
-  <%= t "user.reviews.community_review" %>
-  <% unless @reviews.pluck(:user_id).include? current_user.id %>
-    <%= link_to t("user.reviews.your_review"), new_review_path(id: @book) %>
-  <% end %>
+  <%= render "books/review" %>
 </p>
+
 <div class="reviews">
   <ul>
     <% @reviews.each do |review| %>
-      <li>
-        <div class="col-md-12">
-          <%= link_to review.user.name, user_path(review.user) %>
+      <li id="review-<%= review.id %>">
+        <div class="col-md-10">
+          <%= link_to review.user.name, review.user %>
           <%= t "user.reviews.rate_it", rate: review.rating %>
+        </div>
+        <div class="col-md-2">
+          <% if current_user.current_user? review.user %>
+            <%= link_to t("edit"), edit_review_path(review) %>
+            <%= t "divide" %>
+            <%= link_to t("delete"), review, method: :delete,
+              data: {confirm: t("confirm")}, remote: true %>
+          <% end %>
         </div>
         <div class="col-md-12">
           <%= review.content %>
-          <p class="timestamp">
+          <span class="timestamp">
             <%= t "posted_ago", time: time_ago_in_words(review.created_at) %>
-          </p>
+          </span>
         </div>
       </li>
     <% end %>
