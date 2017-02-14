@@ -30,6 +30,11 @@ en:
   posted_ago: "Posted %{time} ago"
   confirm: "You sure?"
   divide: " | "
+  users: "Users"
+  following: "Following"
+  follower: "Followers"
+  unfollow: "Unfollow"
+  follow: "Follow"
 
   flash:
     danger:
@@ -73,6 +78,9 @@ en:
       button_save: "Save review"
       new: " > Review"
       edit: " > Edit review"
+    following: "%{following} following"
+    follower: "%{follower} follower"
+    all_user: "All Users"
 
   admins:
     categories:
