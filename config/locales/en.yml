@@ -28,6 +28,8 @@ en:
   review: "Review"
   rate: "Rate"
   posted_ago: "Posted %{time} ago"
+  confirm: "You sure?"
+  divide: " | "
 
   flash:
     danger:
@@ -40,6 +42,8 @@ en:
       category_not_update: "Category wasn't updated"
       book_not_found: "Book not found"
       book_not_update: "Book wasn't updated"
+      cannot_delete_review: "Error! Cann't delete review"
+      review_not_found: "Review not found"
     success:
       delete_category: "Category was successfully deleted"
       update_category: "Category was successfully updated"
@@ -66,7 +70,9 @@ en:
       blank: "- Rate -"
       content: "What do you think?"
       button_post: "Post review"
+      button_save: "Save review"
       new: " > Review"
+      edit: " > Edit review"
 
   admins:
     categories:
