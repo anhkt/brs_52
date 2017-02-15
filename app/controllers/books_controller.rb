@@ -12,5 +12,13 @@ class BooksController < ApplicationController
       flash[:danger] = t "flash.danger.book_not_found"
       redirect_to books_path
     end
+
+    if logged_in?
+      @favorite_book = if current_user.favorite_books.find_by book_id: @book.id
+        current_user.favorite_books.find_by book_id: @book.id
+      else
+        current_user.favorite_books.build
+      end
+    end
   end
 end
