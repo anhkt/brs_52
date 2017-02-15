@@ -6,6 +6,10 @@ class AvatarUploader < CarrierWave::Uploader::Base
     process resize_to_fill: [200, 200]
   end
 
+  version :avatar do
+    process resize_to_fill: [50, 50]
+  end
+
   storage :file
 
   def store_dir

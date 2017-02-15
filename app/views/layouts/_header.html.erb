@@ -13,6 +13,7 @@
           <% if current_user.admin? %>
             <li><%= link_to t("category"), admins_categories_path, id: "head" %></li>
           <% end %>
+          <li><%= link_to t("users"), users_path, id: "head" %></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <%= t "account" %><b class="caret"></b>
