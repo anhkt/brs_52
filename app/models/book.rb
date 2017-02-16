@@ -2,7 +2,7 @@ class Book < ApplicationRecord
   belongs_to :category
 
   has_many :reviews
-  has_many :userbooks
+  has_many :favorite_books
 
   mount_uploader :image, ImageUploader
 
@@ -11,6 +11,7 @@ class Book < ApplicationRecord
   validates :description, presence: true
   validates :number_of_pages, presence: true
   validates :category, presence: true
+  validates :publish_date, presence: true
 
   scope :search_book_by_search_params, -> search_param do
     where "title LIKE ? OR author LIKE ?",

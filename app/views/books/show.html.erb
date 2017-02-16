@@ -1,12 +1,14 @@
 <% provide :title, @book.title %>
-
 <div class="row">
   <div class="col-md-4">
     <%= book_image_show @book %>
   </div>
   <div class="col-md-8">
     <h3><b><%= @book.title %></b></h3>
-    <i><%= t "book.by" %></i> <%= @book.author %><br>
+    <i><%= t "book.by" %></i> <%= @book.author %></br>
+    <% if logged_in? %>
+      <%= render "favorite_form" %>
+    <% end %>
     <div class="col-md-12">
       <div class="book-description">
         <%= @book.description %>
