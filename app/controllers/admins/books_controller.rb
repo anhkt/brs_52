@@ -1,6 +1,7 @@
 class Admins::BooksController < ApplicationController
   before_action :logged_in_user, :verify_admin
   before_action :find_book, except: [:index, :new, :create]
+  before_action :find_request, only: :new
 
   def index
     @books = Book.all
@@ -43,6 +44,7 @@ class Admins::BooksController < ApplicationController
     flash[:danger] = t "flash.success.book_delete"
     redirect_to admins_books_path
   end
+
   private
   def book_params
     params.require(:book).permit :title, :author, :description, :publish_date,
@@ -54,6 +56,14 @@ class Admins::BooksController < ApplicationController
     unless @book
       flash[:danger] = t "flash.danger.book_not_found"
       redirect_to admins_books_path
+    end
+  end
+
+  def find_request
+    @request = Request.find_by id: params[:id]
+    unless @request
+      flash[:danger] = t "flash.danger.request_not_found"
+      redirect_to admins_requests_path
     end
   end
 end

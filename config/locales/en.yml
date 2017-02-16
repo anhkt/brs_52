@@ -35,6 +35,7 @@ en:
   follower: "Followers"
   unfollow: "Unfollow"
   follow: "Follow"
+  request: "Request"
 
   flash:
     danger:
@@ -49,6 +50,8 @@ en:
       book_not_update: "Book wasn't updated"
       cannot_delete_review: "Error! Cann't delete review"
       review_not_found: "Review not found"
+      request_not_found: "Request not found"
+      cannot_delete_request: "Error! Cann't delete request"
     success:
       delete_category: "Category was successfully deleted"
       update_category: "Category was successfully updated"
@@ -56,6 +59,7 @@ en:
       book_delete: "Book was successfully deleted"
       book_update: "Book was successfully updated"
       create_review: "Create review successful"
+      send_request: "Send request successful!"
 
   user:
     signup: "Sign up"
@@ -81,6 +85,22 @@ en:
     following: "%{following} following"
     follower: "%{follower} follower"
     all_user: "All Users"
+    request:
+      new_title: "Send a new request"
+      all: "All Requests"
+      book_name: "Book name"
+      user: "User"
+      approve: "Approve"
+      reject: "Reject"
+      pending: "Pending"
+      add_new_book: "(Add new book)"
+      edit: "Edit request"
+      delete:
+      new: "+ New request"
+      status: "Status"
+      button:
+        new: "Send request"
+        edit: "Save change"
 
   admins:
     categories:

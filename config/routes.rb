@@ -11,9 +11,11 @@ Rails.application.routes.draw do
   resources :reviews, except: [:index, :show]
   resources :relationships, only: [:index, :create, :destroy]
   resources :favorite_books, only: [:create, :destroy]
+  resources :requests, except: :show
 
   namespace :admins do
     resources :categories, except: [:new, :show]
     resources :books
+    resources :requests, only: [:index, :update, :destroy]
   end
 end
