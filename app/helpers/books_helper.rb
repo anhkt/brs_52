@@ -20,4 +20,12 @@ module BooksHelper
       l book.publish_date
     end
   end
+
+  def favourite_book_image book
+    if book.image.blank?
+      image_tag "book.jpg", size: Settings.favourite_book_image
+    else
+      image_tag book.image.favourite_book.to_s
+    end
+  end
 end

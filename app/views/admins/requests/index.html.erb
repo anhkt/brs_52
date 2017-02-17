@@ -31,7 +31,7 @@
                   <%= t "user.request.approve" %>
                 </span></h4>
                 <%= link_to t("user.request.add_new_book"),
-                  new_admins_book_path(id: request.id) %>
+                  new_admins_book_path(request_id: request.id) %>
               <% else %>
                 <h4><span class="label label-danger">
                   <%= t "user.request.reject" %>

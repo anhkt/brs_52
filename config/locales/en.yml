@@ -101,6 +101,11 @@ en:
       button:
         new: "Send request"
         edit: "Save change"
+    show:
+      favourite_book: "Favourite Book"
+      write_review: "Write review about "
+      review_in: " in %{time} ago."
+      rate: "Rating: %{rate}/5"
 
   admins:
     categories:
