@@ -60,10 +60,6 @@ class Admins::BooksController < ApplicationController
   end
 
   def find_request
-    @request = Request.find_by id: params[:id]
-    unless @request
-      flash[:danger] = t "flash.danger.request_not_found"
-      redirect_to admins_requests_path
-    end
+    @request = Request.find_by id: params[:request_id]
   end
 end

@@ -14,6 +14,10 @@ class ImageUploader < CarrierWave::Uploader::Base
     process resize_to_limit: [300, 400]
   end
 
+  version :favourite_book do
+    process resize_to_fill: [80, 100]
+  end
+
   storage :file
 
   def store_dir
