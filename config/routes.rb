@@ -8,10 +8,11 @@ Rails.application.routes.draw do
 
   resources :users, except: [:destroy]
   resources :books, only: [:index, :show]
-  resources :reviews, except: [:index, :show]
   resources :relationships, only: [:index, :create, :destroy]
   resources :favorite_books, only: [:create, :destroy]
   resources :requests, except: :show
+  resources :reviews, except: [:index, :show]
+  resources :comments, only: [:create, :update, :destroy]
 
   namespace :admins do
     resources :categories, except: [:new, :show]

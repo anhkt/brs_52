@@ -19,6 +19,7 @@ class BooksController < ApplicationController
       else
         current_user.favorite_books.build
       end
+      @comment = current_user.comments.new
     end
   end
 end

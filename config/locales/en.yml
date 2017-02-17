@@ -36,6 +36,8 @@ en:
   unfollow: "Unfollow"
   follow: "Follow"
   request: "Request"
+  comment: "Comment"
+
 
   flash:
     danger:
@@ -52,6 +54,10 @@ en:
       review_not_found: "Review not found"
       request_not_found: "Request not found"
       cannot_delete_request: "Error! Cann't delete request"
+      comment_not_found: "Comment not found"
+      cannot_delete_comment: "Can't delete comment"
+      cannot_update_comment: "Can't update comment"
+      cannot_create_comment: "Can't create comment"
     success:
       delete_category: "Category was successfully deleted"
       update_category: "Category was successfully updated"
