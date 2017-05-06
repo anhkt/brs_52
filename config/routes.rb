@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     resources :likes, only: [:create, :destroy]
   end
   resources :comments, except: :index
+  resources :relationships, only: [:create, :destroy]
 
   namespace :admin do
     resources :categories do
