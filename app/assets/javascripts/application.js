@@ -13,4 +13,14 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require ckeditor/init
+//= require bootstrap
 //= require_tree .
+
+$(document).on('turbolinks:load', function() {
+  set_timetout();
+});
+
+function set_timetout() {
+  $('.alert').delay(3000).slideUp();
+}
