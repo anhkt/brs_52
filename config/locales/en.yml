@@ -25,3 +25,20 @@ en:
   home: "Home"
   slogan: "Meet your next favourite book"
   framgia: "Framgia VietNam"
+  posted_ago: "Posted %{time} ago"
+
+  buttons:
+    edit: "Edit"
+    delete: "Delete"
+    reply: "Reply"
+    comment: "Comment"
+    commenting: "Commenting.."
+
+  form:
+    confirmation: "Are you sure?"
+    error: "error"
+    inform_error: "The form contain %{error}"
+
+  comments:
+    header:
+      content: "Enter comment ..."

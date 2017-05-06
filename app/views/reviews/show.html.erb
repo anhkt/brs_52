@@ -1,0 +1,68 @@
+<div class="reviews">
+  <div class="box">
+    <div class="box-header with-border">
+      <div class="box-tools">
+        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+          <i class="fa fa-minus"></i>
+        </button>
+        <button type="button" class="btn btn-box-tool" data-widget="remove">
+          <i class="fa fa-times"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="box-body">
+      <div class="col-md-9">
+        <div class="panel">
+          <div class="panel-heading">
+            <%= link_to @review.user.email, @review.user %>
+            <span class="pull-right dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                <i class="fa fa-caret-down"></i>
+              </a>
+              <ul class="dropdown-menu">
+                <% if can? :update, @review %>
+                  <li>
+                    <%= link_to edit_review_path(@review),
+                      remote: true do %>
+                      <i class="fa fa-pencil-square-o"></i>
+                      <%= t "buttons.edit" %>
+                    <% end %>
+                  </li>
+                  <li>
+                    <%= link_to @review,
+                      method: :delete, confirm: t("form.confirmation") do %>
+                      <i class="fa fa-times"></i>
+                      <%= t "buttons.delete" %>
+                    <% end %>
+                  </li>
+                <% end %>
+              </ul>
+            </span>
+            <div class="timestamp">
+              <%= t "posted_ago", time: time_ago_in_words(@review.created_at) %>
+            </div>
+          </div>
+          <div class="panel-body">
+            <p class="content">
+              <%= @review.content.html_safe %>
+            </p>
+          </div>
+          <div class="panel-footer">
+            <div class="comment-review-<%= @review.id %>"></div>
+            <%= render @review.comments.order(updated_at: :desc) %>
+
+            <div class="comment-form-<%= @review.id %>">
+              <%= render "comments/form", review: @review %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+
+      </div>
+    </div>
+
+  </div>
+</div>
