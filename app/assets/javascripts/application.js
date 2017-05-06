@@ -19,6 +19,10 @@
 
 $(document).on('turbolinks:load', function() {
   set_timetout();
+
+  $('.ckeditor').each(function() {
+    CKEDITOR.replace($(this).attr('id'));
+  });
 });
 
 function set_timetout() {

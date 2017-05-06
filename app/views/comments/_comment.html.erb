@@ -17,7 +17,7 @@
               </li>
               <li>
                 <%= link_to comment_path(comment),
-                  method: :delete, confirm: t("form.confirmation"),
+                  data: {method: :delete, confirm: t("form.confirmation")},
                   remote: true do %>
                   <i class="fa fa-times"></i>
                   <%= t "buttons.delete" %>
