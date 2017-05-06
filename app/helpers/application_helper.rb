@@ -20,4 +20,11 @@ module ApplicationHelper
       t "flashs.messages.#{flash_type}", models_name: params[0].join(", ") unless params[0].empty?
     end
   end
+
+  def user_avatar user
+    avatar = user.avatar.blank? ? "default-user-img.png" : user.avatar
+    image_tag avatar,
+      class: "img-circle profile-user-img img-responsive img-circle",
+      alt: t("users.headers.avatar")
+  end
 end

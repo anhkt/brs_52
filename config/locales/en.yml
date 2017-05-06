@@ -35,6 +35,8 @@ en:
     commenting: "Commenting.."
     save: "Save"
     saving: "Saving"
+    follow: "Follow"
+    unfollow: "Unfollow"
 
   form:
     confirmation: "Are you sure?"
@@ -70,6 +72,15 @@ en:
     actions:
       create: "Create new book"
       update: "Update book"
+
+  users:
+    headers:
+      avatar: "User profile picture"
+      follower: "Follower"
+      following: "Following"
+    tabs:
+      settings: "Setting"
+      activities: "Activity"
 
   flashs:
     messages:

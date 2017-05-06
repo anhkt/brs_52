@@ -1,0 +1,29 @@
+<section class="content">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render "profile" %>
+    </div>
+    <!-- /.col -->
+    <div class="col-md-9">
+      <div class="nav-tabs-custom">
+        <ul class="nav nav-tabs">
+          <li class="active">
+            <a href="#activity" data-toggle="tab">
+              <%= t "users.tabs.activities" %>
+            </a>
+          </li>
+          <li>
+            <a href="#settings" data-toggle="tab">
+              <%= t "users.tabs.settings" %>
+            </a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <%= render "activity_tab" %>
+          <%= render "setting_tab" %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
