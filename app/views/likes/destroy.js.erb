@@ -1,0 +1,7 @@
+<% if @target.class.table_name == "comments" %>
+  $("#comment-<%= @target.id %>").find(".comment-like").
+    html("<%= j render 'likes/likes', target: @target %>")
+<% elsif @target.class.table_name == "posts" %>
+  $(".review-<%= @target.id %>").find(".review-like").
+    html("<%= j render 'likes/likes', target: @target %>")
+<% end %>

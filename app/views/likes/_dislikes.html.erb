@@ -1,0 +1,5 @@
+<%= link_to user_like_path(current_user, like),
+  method: :delete, remote: true do %>
+  <i class="fa fa-thumbs-o-up"></i>
+<% end %>
+<%= target.likes.count %>

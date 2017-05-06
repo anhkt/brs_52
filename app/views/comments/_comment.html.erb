@@ -29,11 +29,11 @@
         <span><%= comment.content %></span>
       </div>
       <span class="comment-like">
-        <%# if current_user.like comment %>
-          <%#= render "likes/dislikes", like: current_user.like(comment), target: comment %>
-        <%# else %>
-          <%#= render "likes/likes", target: comment %>
-        <%# end %>
+        <% if current_user.like comment %>
+          <%= render "likes/dislikes", like: current_user.like(comment), target: comment %>
+        <% else %>
+          <%= render "likes/likes", target: comment %>
+        <% end %>
       </span>
       <% if comment.parent.nil? %>
         |

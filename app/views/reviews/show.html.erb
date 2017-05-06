@@ -1,4 +1,4 @@
-<div class="reviews">
+<div class="reviews review-<%= @review.id %>">
   <div class="box">
     <div class="box-header with-border">
       <div class="box-tools">
@@ -46,6 +46,13 @@
             <p class="content">
               <%= @review.content.html_safe %>
             </p>
+            <span class="review-like">
+              <% if current_user.like @review %>
+                <%= render "likes/dislikes", like: current_user.like(@review), target: @review %>
+              <% else %>
+                <%= render "likes/likes", target: @review %>
+              <% end %>
+            </span>
           </div>
           <div class="panel-footer">
             <div class="comment-review-<%= @review.id %>"></div>
