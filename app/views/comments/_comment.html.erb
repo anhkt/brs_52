@@ -1,0 +1,57 @@
+<% if comment.id.present? %>
+  <div id="comment-<%= comment.id %>">
+    <p>
+      <div>
+        <%= link_to comment.user.email, comment.user %>
+        <% if can? :update, comment %>
+          <span class="pull-right dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+              <i class="fa fa-caret-down"></i>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <%= link_to edit_comment_path(comment), remote: true do %>
+                  <i class="fa fa-pencil-square-o"></i>
+                  <%= t "buttons.edit" %>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to comment_path(comment),
+                  method: :delete, confirm: t("form.confirmation"),
+                  remote: true do %>
+                  <i class="fa fa-times"></i>
+                  <%= t "buttons.delete" %>
+                <% end %>
+              </li>
+            </ul>
+          </span>
+        <% end %>
+        <span><%= comment.content %></span>
+      </div>
+      <span class="comment-like">
+        <%# if current_user.like comment %>
+          <%#= render "likes/dislikes", like: current_user.like(comment), target: comment %>
+        <%# else %>
+          <%#= render "likes/likes", target: comment %>
+        <%# end %>
+      </span>
+      <% if comment.parent.nil? %>
+        |
+        <span>
+          <%= link_to t("buttons.reply"), new_comment_path(parent_id: comment.id),
+            remote: true %>
+        </span>
+      <% end %> |
+      <span class="timestamp">
+        <%= t "posted_ago", time: time_ago_in_words(comment.created_at) %>
+      </span>
+    </p>
+
+    <div class="col-md-offset-1 col-md-11">
+      <div class="comment-children-<%= comment.id %>"></div>
+      <%= render comment.children, from_reply_form: true %>
+
+      <div class="reply-comment-<%= comment.id %>"></div>
+    </div>
+  </div>
+<% end %>

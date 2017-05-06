@@ -1,0 +1,16 @@
+<% if @comment.review.present? %>
+  $("#comment-<%= @comment.id %>").html("<%= j render @comment %>")
+  <% temp = @comment %>
+  <% @comment = Comment.new %>
+  $(".comment-form-<%= temp.review_id %> form").remove()
+  $(".comment-form-<%= temp.review_id %>")
+    .html("<%= j render 'comments/form', review: temp.review %>")
+<% else %>
+  $("#comment-<%= @comment.id %>").
+    html("<%= j render @comment %>")
+  <% temp = @comment %>
+  <% @comment = Comment.new parent_id: temp.parent_id %>
+  $(".reply-comment-<%= temp.parent_id %>").find("form")[0].remove()
+  $(".reply-comment-<%= temp.parent_id %>")
+    .html("<%= j render 'comments/reply_form' %>")
+<% end %>

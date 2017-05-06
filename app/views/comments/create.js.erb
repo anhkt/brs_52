@@ -1,0 +1,13 @@
+<% if @comment.review.present? %>
+  $(".comment-review-<%= @comment.review_id %>").
+    append("<%= j render @comment %>")
+  $.each($(".comment-form-<%= @comment.review_id %>").find("form"), function(key, value){
+    value.reset()
+  })
+<% else %>
+  $(".comment-children-<%= @parent.id %>").
+    append("<%= j render @comment %>")
+  $.each($("#comment-<%= @parent.id %>").find("form"), function(key, value){
+    value.reset()
+  })
+<% end %>
