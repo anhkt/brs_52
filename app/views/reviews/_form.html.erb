@@ -1,0 +1,22 @@
+<%= form_for [@book, @review] do |f| %>
+  <%= render "shared/errors_messages", object: @review %>
+
+  <% if f.object.new_record? %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :book_id, value: @book.id %>
+  <% end %>
+
+  <div class="col-md-12">
+    <div class="form-group">
+      <%= f.text_area :content, class: "ckeditor" %>
+    </div>
+  </div>
+
+  <div class="col-md-12">
+    <div class="form-group">
+      <%= f.submit t("buttons.save"),
+        data: {disable_with: t("buttons.saving")},
+        class: "btn btn-lg btn-success pull-right" %>
+    </div>
+  </div>
+<% end %>

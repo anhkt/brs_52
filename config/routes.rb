@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   root "pages#show", page: "home"
   get "/pages/*page" => "pages#show"
 
-  resources :reviews, except: :index do
+  resources :book do
+    resources :reviews, only: [:new, :create]
+  end
+
+  resources :reviews, except: [:new, :create, :index] do
     resources :comments, only: :create
   end
   resources :users, except: :destroy
