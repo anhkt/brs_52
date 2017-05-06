@@ -1,0 +1,17 @@
+<%= form_for [:admin, @category] do |f| %>
+  <%= render "shared/errors_messages", object: @category %>
+
+  <div class="col-md-12">
+    <div class="form-group">
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="col-md-12">
+    <div class="form-group">
+      <%= f.submit t("buttons.save"),
+        data: {disable_with: t("buttons.saving")},
+        class: "btn btn-lg btn-success pull-right" %>
+    </div>
+  </div>
+<% end %>

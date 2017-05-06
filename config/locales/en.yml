@@ -50,6 +50,27 @@ en:
       create: "Create new review"
       update: "Update review"
 
+  categories:
+    category: "Category"
+    headers:
+      name: "Name"
+    actions:
+      create: "Create new category"
+      update: "Update category"
+      all: "Categories"
+
+  books:
+    headers:
+      title: "Title"
+      author: "Author"
+      description: "Description"
+      image: "Image"
+      publish_date: "Publish"
+      number_of_pages: "Number pages"
+    actions:
+      create: "Create new book"
+      update: "Update book"
+
   flashs:
     messages:
       created: "%{model_name} was created successfully!"

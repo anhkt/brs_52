@@ -1,0 +1,40 @@
+<%= form_for [:admin, @category, @book] do |f| %>
+  <%= render "shared/errors_messages", object: @book %>
+  <%= f.hidden_field :category_id, value: @category.id %>
+
+  <div class="form-group">
+    <%= f.label t("books.headers.title") %>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label t("books.headers.author") %>
+    <%= f.text_field :author, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label t("books.headers.description") %>
+    <%= f.text_area :description, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label t("books.headers.publish_date") %>
+    <%= f.date_field :publish_date, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label t("books.headers.number_of_pages") %>
+    <%= f.number_field :number_of_pages, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :image %>
+    <%= f.file_field :image, class: "upload-image" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit t("buttons.save"),
+      data: {disable_with: t("buttons.saving")},
+      class: "btn btn-lg btn-success pull-right" %>
+  </div>
+<% end %>
