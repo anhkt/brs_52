@@ -12,7 +12,9 @@ Rails.application.routes.draw do
   resources :reviews, except: [:new, :create, :index] do
     resources :comments, only: :create
   end
-  resources :users, except: :destroy
+  resources :users, except: :destroy do
+    resources :likes, only: [:create, :destroy]
+  end
   resources :comments, except: :index
 
   namespace :admin do
