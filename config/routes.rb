@@ -14,4 +14,11 @@ Rails.application.routes.draw do
   end
   resources :users, except: :destroy
   resources :comments, except: :index
+
+  namespace :admin do
+    resources :categories do
+      resources :books, only: [:new, :create]
+    end
+    resources :books
+  end
 end

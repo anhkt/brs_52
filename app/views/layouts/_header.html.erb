@@ -3,8 +3,12 @@
     <%= link_to t("title_page"), root_path, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to t("home"), root_path, id: "head" %></li>
         <% if user_signed_in? %>
+          <% if current_user.is_admin? %>
+            <li><%= link_to t("categories.category"), admin_categories_path %></li>
+          <% else %>
+
+          <% end %>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <%= t "account" %><b class="caret"></b>
