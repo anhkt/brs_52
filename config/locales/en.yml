@@ -51,6 +51,7 @@ en:
     actions:
       create: "Create new review"
       update: "Update review"
+      see: "See review"
 
   categories:
     category: "Category"
@@ -66,12 +67,21 @@ en:
       title: "Title"
       author: "Author"
       description: "Description"
-      image: "Image"
+      image: "Book image"
       publish_date: "Publish"
       number_of_pages: "Number pages"
     actions:
       create: "Create new book"
       update: "Update book"
+    by: "by %{author}"
+    more: "(more)"
+    less: "(less)"
+    published: "Published %{date}"
+    reviews: "Reviews"
+    rated_it: "rated it"
+    likes: "%{number} Likes"
+    rate_book: "Rate this book"
+    write_review: "Write reivew"
 
   users:
     headers:
@@ -91,3 +101,6 @@ en:
       not_updated: "%{model_name} couldn't be updated"
       updated: "%{model_name} was updated successfully!"
       permission_denied: "You are not authorized to access this page."
+  time:
+    formats:
+      short: "%d-%B-%Y"

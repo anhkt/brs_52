@@ -15,6 +15,7 @@ class Ability
       can [:edit, :update, :destroy], Comment, Comment do |comment|
         comment.user_id == user.id
       end
+      can :show, Book
     end
   end
 end
