@@ -151,6 +151,7 @@ footer {
 
   .td-sidebar {
     margin: 0 !important;
+    padding-right: 30px !important;
   }
 }
 
@@ -212,4 +213,11 @@ footer {
       padding-top: 20px !important;
     }
   }
+}
+
+.td-css-box {
+  -webkit-text-size-adjust: none;
+  -ms-overflow-style: scrollbar;
+  background: #f4f4f4;
+  padding: 10px 15px;
 }
