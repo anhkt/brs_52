@@ -1,0 +1,40 @@
+<div class="box box-success">
+  <div class="box-header with-border">
+    <h3 class="title">
+      <%= t "users.titles.all" %>
+    </h3>
+  </div>
+
+  <div class="box-body">
+    <table class="table table-border">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th><%= t "users.headers.name" %></th>
+          <th><%= t "users.headers.email" %></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each_with_index do |user, index| %>
+          <tr>
+            <td>
+              <%= index + 1 %>
+            </td>
+            <td>
+              <%= link_to user.name, user %>
+            </td>
+            <td>
+              <%= link_to user.email, user %>
+            </td>
+            <td>
+              <%= link_to t("buttons.delete"), [:admin, user],
+                data: {method: :delete, confirm: t("form.confirmation")},
+                class: "btn btn-danger" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

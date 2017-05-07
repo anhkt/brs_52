@@ -15,6 +15,8 @@
 //= require turbolinks
 //= require ckeditor/init
 //= require bootstrap
+//= require highcharts
+//= require highcharts/highcharts-more
 //= require_tree .
 
 $(document).on('turbolinks:load', function() {
@@ -28,11 +30,46 @@ $(document).on('turbolinks:load', function() {
     if ($(this).val() == 'want_to_read') {
       $(this).val("want_to_read").change()
     }
-  })
+  });
 
   $(document).on('change', '#user_book_status', function() {
     $(this).parent().submit();
-  })
+  });
+
+  Highcharts.chart('statistic', {
+    chart: {
+      type: 'line'
+    },
+    title: {
+      text: 'Statistic about system'
+    },
+    xAxis: {
+      categories: $('#statistic').data('dates')
+    },
+    yAxis: {
+      title: {
+        text: 'Number'
+      }
+    },
+    plotOptions: {
+      line: {
+        dataLabels: {
+          enabled: true
+        },
+        enableMouseTracking: false
+      }
+    },
+    series: [{
+      name: 'Review',
+      data: $('#statistic').data('reviews')
+    }, {
+      name: 'Comment',
+      data: $('#statistic').data('comments')
+    }, {
+      name: 'User',
+      data: $('#statistic').data('users')
+    }]
+  });
 });
 
 function set_timetout() {

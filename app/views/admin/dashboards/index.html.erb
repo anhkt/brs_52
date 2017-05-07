@@ -1,0 +1,14 @@
+<div class="box box-success">
+  <div class="box-header with-border">
+    <h3 class="title">
+      <%= t "dashboards.statistics.info" %>
+    </h3>
+  </div>
+
+  <div class="box-body">
+    <div id="statistic" data-dates="<%= @dates %>"
+      data-comments="<%= @comment_by_day %>"
+      data-users="<%= @user_by_day %>"
+      data-reviews="<%= @review_by_day %>"></div>
+  </div>
+</div>
