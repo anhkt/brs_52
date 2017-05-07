@@ -19,6 +19,7 @@ class User < ApplicationRecord
   has_many :followers, through: :passive_relationships, source: :follower
   has_many :likes, dependent: :destroy
   has_many :notifications, foreign_key: :recipient_id
+  has_many :reports, dependent: :destroy
 
   def like target
     likes.find_by likeable_id: target, likeable_type: target.class

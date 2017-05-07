@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :comments, except: :index
   resources :relationships, only: [:create, :destroy]
   resources :user_books, only: [:create, :update]
+  resources :reports, only: :create
 
   namespace :admin do
     resources :categories do

@@ -37,6 +37,8 @@ en:
     saving: "Saving"
     follow: "Follow"
     unfollow: "Unfollow"
+    report: "Report"
+    cancel: "Cancel"
 
   form:
     confirmation: "Are you sure?"
@@ -98,6 +100,10 @@ en:
       want_to_read: "Want to read"
       reading: "Currently Reading"
       read: "Read"
+
+  reports:
+    headers:
+      reason: "Reason"
 
   flashs:
     messages:
