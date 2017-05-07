@@ -39,6 +39,7 @@ en:
     unfollow: "Unfollow"
     report: "Report"
     cancel: "Cancel"
+    view_all: "View all"
 
   form:
     confirmation: "Are you sure?"

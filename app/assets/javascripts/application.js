@@ -36,40 +36,54 @@ $(document).on('turbolinks:load', function() {
     $(this).parent().submit();
   });
 
-  Highcharts.chart('statistic', {
-    chart: {
-      type: 'line'
-    },
-    title: {
-      text: 'Statistic about system'
-    },
-    xAxis: {
-      categories: $('#statistic').data('dates')
-    },
-    yAxis: {
+  if ($('#statistic').length > 0) {
+    Highcharts.chart('statistic', {
+      chart: {
+        type: 'line'
+      },
       title: {
-        text: 'Number'
-      }
-    },
-    plotOptions: {
-      line: {
-        dataLabels: {
-          enabled: true
-        },
-        enableMouseTracking: false
-      }
-    },
-    series: [{
-      name: 'Review',
-      data: $('#statistic').data('reviews')
-    }, {
-      name: 'Comment',
-      data: $('#statistic').data('comments')
-    }, {
-      name: 'User',
-      data: $('#statistic').data('users')
-    }]
-  });
+        text: 'Statistic about system'
+      },
+      xAxis: {
+        categories: $('#statistic').data('dates')
+      },
+      yAxis: {
+        title: {
+          text: 'Number'
+        }
+      },
+      plotOptions: {
+        line: {
+          dataLabels: {
+            enabled: true
+          },
+          enableMouseTracking: false
+        }
+      },
+      series: [{
+        name: 'Review',
+        data: $('#statistic').data('reviews')
+      }, {
+        name: 'Comment',
+        data: $('#statistic').data('comments')
+      }, {
+        name: 'User',
+        data: $('#statistic').data('users')
+      }]
+    });
+  }
+
+  $(document).on('click', '#notifications-number', function(e) {
+    console.log("a")
+    e.preventDefault();
+    $.ajax({
+      method: "PATCH",
+      url: "http://localhost:3000//update_notification/users"
+    })
+    .done(function() {
+      $('.number-noti').remove()
+    });
+  })
 });
 
 function set_timetout() {

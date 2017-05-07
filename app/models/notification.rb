@@ -9,6 +9,6 @@ class Notification < ApplicationRecord
   private
 
   def update_seen_noti
-    self.recipient.update_attribute :seen_noti, false
+    self.recipient.update_attribute :seen_noti, true
   end
 end

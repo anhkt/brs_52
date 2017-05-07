@@ -21,6 +21,9 @@ class Ability
         user_book.user_id == user.id
       end
       can :create, Report
+      can :update, Notification, Notification do |notification|
+        notification.user_id == user.id
+      end
     end
   end
 end

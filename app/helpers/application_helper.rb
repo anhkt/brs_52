@@ -41,4 +41,23 @@ module ApplicationHelper
       OpenStruct.new key: key, value: t("#{model_name.pluralize}.#{enum}.#{key}")
     end.flatten
   end
+
+  def display_notification notification
+    case notification.action
+    when "follower"
+      "#{notification.user.email} #{notification.action} you!"
+    when "commented"
+      "#{notification.user.email} #{notification.action} your review!"
+    when "replied"
+      "#{notification.user.email} #{notification.action} your comment!"
+    when "liked"
+      if notification.notifiable_type == "Comment"
+        "#{notification.user.email} #{notification.action} your comment!"
+      else
+        "#{notification.user.email} #{notification.action} your review!"
+      end
+    when "reported"
+      "#{notification.user.email} #{notification.action} review!"
+    end
+  end
 end
