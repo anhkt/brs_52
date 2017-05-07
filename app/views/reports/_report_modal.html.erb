@@ -1,0 +1,28 @@
+<div id="report-modal" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <%= form_for Report.new do |f| %>
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class="modal-title"><%= t "buttons.report" %></h4>
+        </div>
+        <div class="modal-body">
+          <%= f.hidden_field :user_id, value: current_user.id %>
+          <%= f.hidden_field :review_id, value: @review.id %>
+          <div class="form-group">
+            <%= f.label t("reports.headers.reason") %>
+            <%= f.text_area :reason, class: "form-control" %>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">
+            <%= t "buttons.cancel" %>
+          </button>
+          <%= f.submit t("buttons.save"), class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

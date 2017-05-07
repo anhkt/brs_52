@@ -20,6 +20,7 @@ class Ability
       can :update, UserBook, UserBook do |user_book|
         user_book.user_id == user.id
       end
+      can :create, Report
     end
   end
 end
