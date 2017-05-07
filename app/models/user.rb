@@ -42,4 +42,8 @@ class User < ApplicationRecord
   def mark_book? book
     mark_books.include? book
   end
+
+  def password_required?
+    new_record? ? super : false
+  end
 end

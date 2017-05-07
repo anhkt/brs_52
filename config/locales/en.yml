@@ -92,6 +92,8 @@ en:
     tabs:
       settings: "Setting"
       activities: "Activity"
+    edit: "Edit user"
+    noti_password: "leave blank if you don't want to change it"
 
   user_books:
     statuses:
