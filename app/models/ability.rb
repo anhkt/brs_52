@@ -16,6 +16,10 @@ class Ability
         comment.user_id == user.id
       end
       can :show, Book
+      can :create, UserBook
+      can :update, UserBook, UserBook do |user_book|
+        user_book.user_id == user.id
+      end
     end
   end
 end

@@ -1,0 +1,9 @@
+<%= form_for @user_book, remote: true do |f| %>
+  <% if f.object.new_record? %>
+    <%= f.hidden_field :book_id %>
+    <%= f.hidden_field :user_id %>
+  <% end %>
+  <%= f.select :status, options_from_collection_for_select(
+    i18n_enum(:user_book, :status), :key, :value, f.object.status), {},
+    class: "form-control btn btn-success btn-block" %>
+<% end %>

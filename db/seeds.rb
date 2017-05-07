@@ -20,7 +20,7 @@ User.create!(name: "Test",
 Category.create! name: "Tradition"
 
 Book.create!(author: "Trung", description: "ABC", title: "123",
-	category_id: 1)
+  category_id: 1, publish_date: Date.today)
 
 Review.create! rating: 1, content: "123", book_id: 1, user_id: 1
 Comment.create! content: "HHHH", review_id: 1, user_id: 1

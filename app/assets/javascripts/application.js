@@ -23,6 +23,16 @@ $(document).on('turbolinks:load', function() {
   $('.ckeditor').each(function() {
     CKEDITOR.replace($(this).attr('id'));
   });
+
+  $(document).on('click', 'select#user_book_status', function() {
+    if ($(this).val() == 'want_to_read') {
+      $(this).val("want_to_read").change()
+    }
+  })
+
+  $(document).on('change', '#user_book_status', function() {
+    $(this).parent().submit();
+  })
 });
 
 function set_timetout() {
