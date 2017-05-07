@@ -1,9 +1,59 @@
 <% provide :title, t("home") %>
-<div class="center jumbotron">
-  <h1><%= t "welcome" %></h1>
-  <h1><%= t "title_page" %></h1>
-  <h2><%= t "slogan" %></h2>
-  <% unless user_signed_in? %>
-    <%= link_to t("sign_up"), new_user_registration_path, class: "btn btn-lg btn-primary" %>
+<div class="container home-page">
+  <% if user_signed_in? %>
+    <h1><%= I18n.t "home_pages.goodread_blog" %></h1>
+    <div class="col-md-3">
+      <h3 class="col-md-offset-2"><%= I18n.t "home_pages.categories" %></h3>
+      <div class="categories">
+        <ul class="group-categories">
+          <% @categories.each do |category| %>
+            <li class="category-item">
+              <%= category.name %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+
+      <div class="follow-us">
+        <h4 class="col-md-offset-2"><%= I18n.t "home_pages.follow_us" %></h3>
+        <ul>
+          <li>
+            <%= link_to "#" do %>
+              <i class="fa fa-facebook" aria-hidden="true"></i>
+              <%= I18n.t "home_pages.fb" %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to "#" do %>
+              <i class="fa fa-twitch" aria-hidden="true"></i>
+              <%= I18n.t "home_pages.twitter" %>
+            <% end %></li>
+          <li>
+            <%= link_to "#" do %>
+              <i class="fa fa-google-plus-square" aria-hidden="true"></i>
+              <%= I18n.t "home_pages.google" %>
+            <% end %>
+          </li>
+
+          <li>
+            <%= link_to "#" do %>
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+              <%= I18n.t "home_pages.zalo" %>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-md-9 books">
+      <% @books.each do |book| %>
+        <div class="col-md-4 book">
+          <%= book_image book %>
+          <div class="title">
+            <%= link_to book.title, book_path(book)%>
+          </div>
+        </div>
+      <% end %>
+    </div>
   <% end %>
 </div>

@@ -28,6 +28,8 @@ gem "cancancan", "~> 1.10"
 gem "devise"
 gem "devise-bootstrap-views"
 gem "closure_tree"
+gem "font-awesome-sass"
+gem "kaminari"
 
 group :development, :test do
   gem "byebug", platform: :mri

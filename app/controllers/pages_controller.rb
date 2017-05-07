@@ -2,6 +2,8 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!
 
   def show
+    @books = Book.all.limit 50
+    @categories = Category.all
     if valid_page?
       render template: "pages/#{params[:page]}"
     else
