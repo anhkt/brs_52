@@ -30,6 +30,7 @@ gem "devise-bootstrap-views"
 gem "closure_tree"
 gem "font-awesome-sass"
 gem "kaminari"
+gem "redis", "~> 3.0"
 
 group :development, :test do
   gem "byebug", platform: :mri

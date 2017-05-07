@@ -1,0 +1,11 @@
+<% if notification.seen? %>
+  <div>
+    <%= notification.user.email %> <%= notification.action %> you!
+  </div>
+<% else %>
+  <div>
+    <strong>
+      <%= notification.user.email %> <%= notification.action %> you!
+    </strong>
+  </div>
+<% end %>

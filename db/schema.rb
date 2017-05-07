@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170506083737) do
+ActiveRecord::Schema.define(version: 20170507041753) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "object_id"
@@ -93,6 +93,18 @@ ActiveRecord::Schema.define(version: 20170506083737) do
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
+  create_table "notifications", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "recipient_id"
+    t.string   "action"
+    t.string   "notifiable_type"
+    t.integer  "notifiable_id"
+    t.boolean  "seen",            default: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.index ["user_id"], name: "index_notifications_on_user_id"
+  end
+
   create_table "relationships", force: :cascade do |t|
     t.integer  "follower_id"
     t.integer  "followed_id"
@@ -131,6 +143,7 @@ ActiveRecord::Schema.define(version: 20170506083737) do
     t.string   "name",                   default: "",    null: false
     t.boolean  "is_admin",               default: false, null: false
     t.string   "avatar"
+    t.boolean  "seen_noti",              default: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
