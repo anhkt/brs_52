@@ -82,6 +82,7 @@ en:
     likes: "%{number} Likes"
     rate_book: "Rate this book"
     write_review: "Write reivew"
+    my_book: "My Book"
 
   users:
     headers:
@@ -110,3 +111,13 @@ en:
   time:
     formats:
       short: "%d-%B-%Y"
+
+  home_pages:
+    goodread_blog: "Goodreads Blog"
+    categories: "Categories"
+    follow_us: "Follow us"
+    fb: "Facebook"
+    twitter: "Twitter"
+    google: "Google"
+    zalo: "Zalo"
+

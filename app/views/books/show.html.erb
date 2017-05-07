@@ -28,10 +28,12 @@
       </div>
     </div>
 
-    <div class="publish">
-      <i><%= t "books.published",
-        date: (l @book.publish_date, format: :short) %></i>
-    </div>
+    <% if @book.publish_date %>
+      <div class="publish">
+        <i><%= t "books.published",
+          date: (l @book.publish_date, format: :short) %></i>
+      </div>
+    <% end %>
   </div>
 
   <div class="col-md-12 all_review">

@@ -17,10 +17,26 @@ User.create!(name: "Test",
   password: "12345678",
   password_confirmation: "12345678")
 
-Category.create! name: "Tradition"
+Category.create! ([
+  {name: "Tradition"},
+  {name: "Category 1"},
+  {name: "Category 0"},
+  {name: "Category 2"},
+  {name: "Category 3"},
+  ])
 
-Book.create!(author: "Trung", description: "ABC", title: "123",
-  category_id: 1, publish_date: Date.today)
+Book.create!([
+  {author: "Trung", description: "ABC", title: "book 1", category_id: 1, publish_date: Date.today},
+  {author: "Trung", description: "ABC", title: "book 2", category_id: 1, publish_date: Date.today},
+  {author: "Trung", description: "ABC", title: "book 3 1", category_id: 1, publish_date: Date.today},
+  {author: "Trung", description: "ABC", title: "book 4", category_id: 1, publish_date: Date.today},
+  {author: "Trung", description: "ABC", title: "book 5", category_id: 3, publish_date: Date.today},
+  {author: "Trung", description: "ABC", title: "12book 63", category_id: 1, publish_date: Date.today},
+  {author: "Trung", description: "ABC", title: "book 7", category_id: 2, publish_date: Date.today},
+  {author: "Trung", description: "ABC", title: "book81", category_id: 3, publish_date: Date.today},
+  {author: "Trung", description: "ABC", title: "book91", category_id: 2, publish_date: Date.today},
+  {author: "Trung", description: "ABC", title: "book 11", category_id: 3, publish_date: Date.today},
+  {author: "Trung", description: "ABC", title: "book 2", category_id: 2, publish_date: Date.today},])
 
 Review.create! rating: 1, content: "123", book_id: 1, user_id: 1
 Comment.create! content: "HHHH", review_id: 1, user_id: 1
