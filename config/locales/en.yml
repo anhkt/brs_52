@@ -92,6 +92,12 @@ en:
       settings: "Setting"
       activities: "Activity"
 
+  user_books:
+    statuses:
+      want_to_read: "Want to read"
+      reading: "Currently Reading"
+      read: "Read"
+
   flashs:
     messages:
       created: "%{model_name} was created successfully!"

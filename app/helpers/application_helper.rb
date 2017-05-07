@@ -33,4 +33,12 @@ module ApplicationHelper
     image_tag image,
       alt: t("books.headers.image")
   end
+
+  def i18n_enum model_name, enum
+    enum = enum.to_s.pluralize
+    model_name = model_name.to_s
+    model_name.classify.constantize.public_send(enum).keys.map do |key|
+      OpenStruct.new key: key, value: t("#{model_name.pluralize}.#{enum}.#{key}")
+    end.flatten
+  end
 end

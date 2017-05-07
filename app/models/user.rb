@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_many :activities, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :reviews, dependent: :destroy
+  has_many :user_books, dependent: :destroy
+  has_many :mark_books, through: :user_books, source: :book
   has_many :favorite_books, dependent: :destroy
   has_many :books, through: :favorite_books
   has_many :active_relationships, class_name:  Relationship.name,
@@ -35,5 +37,9 @@ class User < ApplicationRecord
 
   def current_user? user
     self == user
+  end
+
+  def mark_book? book
+    mark_books.include? book
   end
 end
