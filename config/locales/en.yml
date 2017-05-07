@@ -111,7 +111,6 @@ en:
   time:
     formats:
       short: "%d-%B-%Y"
-
   home_pages:
     goodread_blog: "Goodreads Blog"
     categories: "Categories"
@@ -120,4 +119,4 @@ en:
     twitter: "Twitter"
     google: "Google"
     zalo: "Zalo"
-
+  author: "Author"
