@@ -1,0 +1,16 @@
+<% rating = round_rating @book.ratings.plus.average(:rating) %>
+<% 1.upto 5 do |index| %>
+  <%
+    star =
+      if index <= rating
+        "fa-star"
+      elsif index - 0.5 == rating
+        "fa-star-half-o"
+      else
+        "fa-star-o"
+      end
+  %>
+
+  <i class="fa <%= star %> rate"></i>
+<% end %>
+<%= rating %> (<%= pluralize @book.ratings.plus.count, t("books.rating") %>)

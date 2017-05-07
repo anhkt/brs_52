@@ -1,7 +1,7 @@
 class Review < ApplicationRecord
   include RandomRecord
 
-  ATTRIBUTE_PARAMS = [:rating, :content, :book_id, :user_id]
+  ATTRIBUTE_PARAMS = [:content, :book_id, :user_id]
 
   belongs_to :book
   belongs_to :user

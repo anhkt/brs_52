@@ -9,6 +9,7 @@ class Book < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :favorite_books, dependent: :destroy
   has_many :users, through: :favorite_books
+  has_many :ratings, dependent: :destroy
 
   mount_uploader :image, ImageUploader
 end

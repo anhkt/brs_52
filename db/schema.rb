@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170507070112) do
+ActiveRecord::Schema.define(version: 20170507171700) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "object_id"
@@ -105,6 +105,16 @@ ActiveRecord::Schema.define(version: 20170507070112) do
     t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
+  create_table "ratings", force: :cascade do |t|
+    t.integer  "rating",     default: 0
+    t.integer  "user_id"
+    t.integer  "book_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.index ["book_id"], name: "index_ratings_on_book_id"
+    t.index ["user_id"], name: "index_ratings_on_user_id"
+  end
+
   create_table "relationships", force: :cascade do |t|
     t.integer  "follower_id"
     t.integer  "followed_id"
@@ -124,7 +134,6 @@ ActiveRecord::Schema.define(version: 20170507070112) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.integer  "rating"
     t.text     "content"
     t.integer  "book_id"
     t.integer  "user_id"
