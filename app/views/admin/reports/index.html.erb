@@ -1,0 +1,38 @@
+<div class="box box-success">
+  <div class="box-header with-border">
+    <h3 class="title">
+      <%= t "reports.titles.all" %>
+    </h3>
+  </div>
+
+  <div class="box-body">
+    <table class="table table-border">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th><%= t "reports.headers.user" %></th>
+          <th><%= t "reports.headers.report" %></th>
+          <th><%= t "reports.headers.reason" %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @reports.each_with_index do |report, index| %>
+          <tr>
+            <td>
+              <%= index + 1 %>
+            </td>
+            <td>
+              <%= link_to report.user.name, report.user %>
+            </td>
+            <td>
+              <%= link_to report.review.content.truncate(200), report.review %>
+            </td>
+            <td>
+              <%= report.reason %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

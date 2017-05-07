@@ -87,10 +87,14 @@ en:
     my_book: "My Book"
 
   users:
+    titles:
+      all: Users
     headers:
       avatar: "User profile picture"
       follower: "Follower"
       following: "Following"
+      name: "Name"
+      email: "Email"
     tabs:
       settings: "Setting"
       activities: "Activity"
@@ -102,8 +106,17 @@ en:
       read: "Read"
 
   reports:
+    report: "Report"
+    titles:
+      all: "Reports"
     headers:
       reason: "Reason"
+      user: "User"
+      review: "Review"
+
+  dashboards:
+    statistics:
+      info: "Statistic"
 
   flashs:
     messages:
@@ -114,6 +127,7 @@ en:
       not_updated: "%{model_name} couldn't be updated"
       updated: "%{model_name} was updated successfully!"
       permission_denied: "You are not authorized to access this page."
+
   time:
     formats:
       short: "%d-%B-%Y"

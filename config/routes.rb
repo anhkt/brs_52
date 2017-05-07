@@ -25,5 +25,8 @@ Rails.application.routes.draw do
       resources :books, only: [:new, :create]
     end
     resources :books
+    resources :dashboards, only: :index
+    resources :reports, only: :index
+    resources :users, only: [:index, :destroy]
   end
 end
