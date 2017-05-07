@@ -1,4 +1,6 @@
 class Book < ApplicationRecord
+  include RandomRecord
+
   ATTRIBUTES_PARAMS = [:title, :author, :description, :image, :publish_date,
     :number_of_pages, :category_id]
 

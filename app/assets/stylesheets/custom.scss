@@ -110,3 +110,106 @@ footer {
     }
   }
 }
+
+.td-review-book-image {
+  margin-top: 30px !important;
+
+  img {
+    max-height: 300px;
+  }
+}
+
+.td-home {
+  a:hover {
+    text-decoration: none !important;
+  }
+
+  .title {
+    h2 {
+      display: block;
+      height: 35px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      margin: 0 !important;
+    }
+
+    p {
+      display: block;
+      height: 50px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      margin: 0 !important;
+    }
+  }
+}
+
+.td-home-box {
+  display: block !important;
+  padding: 30px 0 0 0 !important;
+
+  .td-sidebar {
+    margin: 0 !important;
+  }
+}
+
+.mini-post {
+  h3 {
+    a {
+      display: block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
+
+.post {
+  padding-top: 0 !important;
+
+  header {
+    display: block !important;
+    margin: 0 !important;
+
+    .title {
+      padding-top: 50px !important;
+      padding-bottom: 0 !important;
+      border-right: 1px solid rgba(160,160,160,.3);
+    }
+
+    .meta {
+      padding: 40px 0 0 0 !important;
+      border: none !important;
+      text-align: center !important;
+    }
+  }
+}
+
+.author {
+  span, img {
+    margin: 0 auto;
+  }
+}
+
+.published {
+  span {
+    float: right;
+    font-style: italic;
+  }
+}
+
+.header {
+  height: 60px;
+
+  a {
+    border: none;
+    height: 60px;
+  }
+
+  nav {
+    a {
+      padding-top: 20px !important;
+    }
+  }
+}

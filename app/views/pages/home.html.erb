@@ -57,3 +57,91 @@
     </div>
   <% end %>
 </div>
+
+<% unless user_signed_in? %>
+  <div id="wrapper" class="td-home-box">
+    <section id="sidebar" class="col-sm-4 td-sidebar">
+      <section>
+        <div class="mini-posts">
+          <% @book_randoms.each do |book| %>
+            <article class="mini-post">
+              <header>
+                <h3><a href="#" title="<%= book.title %>"><%= book.title %></a></h3>
+                <time class="published">
+                  <%= l book.created_at, format: :short %>
+                  <span>
+                    <%= t "author" %>:
+                    <%= book.author %>
+                  </span>
+                </time>
+              </header>
+              <a href="#" class="image">
+                <%= image_tag book.image %>
+              </a>
+            </article>
+          <% end %>
+        </div>
+      </section>
+
+      <section class="blurb">
+        <h2>About</h2>
+        <p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod amet placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at phasellus sed ultricies.</p>
+        <ul class="actions">
+          <li><a href="#" class="button">Learn More</a></li>
+        </ul>
+      </section>
+
+      <section id="footer">
+        <ul class="icons">
+          <li><a href="#" class="fa-twitter"><span class="label">Twitter</span></a></li>
+          <li><a href="#" class="fa-facebook"><span class="label">Facebook</span></a></li>
+          <li><a href="#" class="fa-instagram"><span class="label">Instagram</span></a></li>
+          <li><a href="#" class="fa-rss"><span class="label">RSS</span></a></li>
+          <li><a href="#" class="fa-envelope"><span class="label">Email</span></a></li>
+        </ul>
+        <p class="copyright">&copy; Untitled. Design: <a href="http://html5up.net">HTML5 UP</a>. Images: <a href="http://unsplash.com">Unsplash</a>.</p>
+      </section>
+    </section>
+
+    <div class="td-home col-sm-8">
+      <% @review_randoms.each do |review| %>
+        <article class="post">
+          <header>
+            <div class="title col-sm-8">
+              <h2>
+                <a href="#" title="<%= review.book.title %>">
+                  <%= review.book.title %>
+                </a>
+              </h2>
+              <p title="<%= review.book.description %>">
+                <%= review.book.description %>
+              </p>
+            </div>
+            <div class="meta col-sm-4">
+              <time class="published" datetime="2015-11-01">
+                <%= l review.created_at, format: :short %>
+              </time>
+              <a href="#" class="author">
+                <span><%= review.user.name %></span>
+                <% if review.user.avatar %>
+                  <%= image_tag review.user.avatar %>
+                <% else %>
+                  <%= image_tag "images.jpg" %>
+                <% end %>
+              </a>
+            </div>
+            <div class="clearfix"></div>
+          </header>
+          <a href="#" class="image featured td-review-book-image img-responsive">
+            <%= image_tag review.book.image %>
+          </a>
+          <p>
+            <%= review.content %>
+          </p>
+        </article>
+      <% end %>
+    </div>
+
+    <div class="clearfix"></div>
+  </div>
+<% end %>
