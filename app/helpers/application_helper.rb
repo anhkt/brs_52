@@ -27,4 +27,10 @@ module ApplicationHelper
       class: "img-circle profile-user-img img-responsive img-circle",
       alt: t("users.headers.avatar")
   end
+
+  def book_image book
+    image = book.image.blank? ? "book-default.jpg" : book.image
+    image_tag image,
+      alt: t("books.headers.image")
+  end
 end

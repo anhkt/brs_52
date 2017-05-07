@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root "pages#show", page: "home"
   get "/pages/*page" => "pages#show"
 
-  resources :book do
+  resources :books do
     resources :reviews, only: [:new, :create]
   end
 

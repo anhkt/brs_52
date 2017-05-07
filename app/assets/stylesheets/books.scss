@@ -1,0 +1,101 @@
+// Place all the styles related to the Books controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.book {
+
+  min-height: 200px;
+  max-height: 400px;
+
+  a {
+    text-decoration: none;
+    color: green;
+
+    &:hover {
+      color: black;
+    }
+  }
+
+  .book-avatar {
+    height: 300px;
+
+    img {
+      width: 100%;
+      height: 80%;
+    }
+
+    .rate-book {
+      width: 100%;
+      text-align: center;
+
+      p {
+        font-weight: bold;
+        color: brown;
+      }
+    }
+  }
+  .title {
+    font-size: 18pt;
+    font-weight: bold;
+  }
+
+  .content {
+    margin-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid black;
+  }
+
+  .all_review {
+    .title {
+      font-size: 14pt;
+      font-weight: bold;
+      border-bottom: 1px solid black;
+      padding-bottom: 5px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    .avatar-user {
+      height: 60px;
+      width: 60px;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .review .user {
+      display: inline-block;
+      float: left;
+    }
+
+    .time-create-review {
+      display: inline-block;
+      float: right;
+    }
+
+    .review {
+      margin: 10px 0;
+      padding: 10px 0;
+
+      .user-info-review {
+        margin-bottom: 20px;
+      }
+
+      .like {
+        margin-top: 10px;
+
+        .btn-like {
+          padding: 5px;
+          border: 1px solid #D6D0C4;
+          text-decoration: none;
+          background-color: #F4F1EA;
+          border-radius: 3px;
+          color: black;
+        }
+      }
+    }
+  }
+}

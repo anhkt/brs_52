@@ -1,0 +1,89 @@
+<% provide :title, @book.title %>
+<div class="container book">
+  <div class="col-md-3">
+    <div class="book-avatar">
+      <%= book_image @book %>
+
+      <div class="rate-book">
+        <p><%= t "books.rate_book" %></p>
+        rate
+      </div>
+    </div>
+  </div>
+  <div class="col-md-9">
+    <p class="title"><%= @book.title %></p>
+    <i><%= t "books.by", author:  @book.author %></i>
+    <div class="content">
+      <div class="description-less">
+        <%= truncate @book.description, length: 300 %>
+        <%= link_to t("books.more"), "#", class: "show-more", remote: true %>
+      </div>
+      <div class="description-full hidden">
+        <%= @book.description %>
+        <%= link_to t("books.less"), "#", class: "show-less", remote: true %>
+      </div>
+    </div>
+
+    <div class="publish">
+      <i><%= t "books.published",
+        date: (l @book.publish_date, format: :short) %></i>
+    </div>
+  </div>
+
+  <div class="col-md-12 all_review">
+    <p class="title">
+      <%= t "books.reviews" %>
+    </p>
+
+    <% if user_signed_in? %>
+      <p class="text-center">
+        <%= link_to t("books.write_review"),
+          new_book_review_path(@book), class: "btn btn-lg btn-default" %>
+      </p>
+    <% end %>
+    <% @reviews.each do |review| %>
+      <div class="review review-<%= review.id %> clearfix">
+        <div class="col-md-1">
+          <div class="avatar-user">
+            <%= user_avatar review.user %>
+          </div>
+        </div>
+        <div class="col-md-11">
+          <div class="col-md-12 user-info-review">
+            <div class="user">
+              <%= link_to review.user.name, user_path(review.user) %>
+              <%= t "books.rated_it" %>
+            </div>
+            <div class="time-create-review">
+            <%= l review.created_at, format: :short %>
+            </div>
+          </div>
+
+          <div class="col-md-12">
+            <div class="content-review-less">
+              <%= truncate review.content, length: 200 %>
+              <%= link_to t("books.more"), "#", class: "show-more", remote: true %>
+            </div>
+
+            <div class="content-review-full hidden">
+              <%= review.content %>
+              <%= link_to t("books.less"), "#", class: "show-less", remote: true %>
+            </div>
+          </div>
+
+          <div class="col-md-12 like">
+            <span class="review-like">
+              <% if current_user.like review %>
+                <%= render "likes/dislikes", like: current_user.like(review),
+                  target: review %>
+              <% else %>
+                <%= render "likes/likes", target: review %>
+              <% end %>
+            </span>
+            <%= link_to t("reviews.actions.see"), review_path(review) %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
