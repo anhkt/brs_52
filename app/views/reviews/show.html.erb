@@ -38,7 +38,7 @@
                 </ul>
               </span>
             <% end %>
-            <% if @review.user != current_user %>
+            <% if @review.user != current_user && !current_user.is_admin? %>
               <span class="pull-right dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
                   <i class="fa fa-caret-down"></i>

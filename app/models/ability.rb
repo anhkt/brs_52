@@ -22,7 +22,7 @@ class Ability
       end
       can :create, Report
       can :update, Notification, Notification do |notification|
-        notification.user_id == user.id
+        notification.recipient_id == user.id
       end
     end
   end

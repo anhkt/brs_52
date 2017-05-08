@@ -35,15 +35,23 @@ class ReviewsController < ApplicationController
   def destroy
     if @review.destroy
       flash[:success] = flash_message "deleted"
+      if current_user.is_admin?
+        create_notification
+      end
     else
       flash[:alert] = flash_message "not_deleted"
     end
-    redirect_to :back
+    redirect_to @review.book
   end
 
   private
 
   def review_params
     params.require(:review).permit Review::ATTRIBUTE_PARAMS
+  end
+
+  def create_notification
+    Notification.create(recipient: @review.user, user: current_user,
+        action: "banned", notifiable: @review)
   end
 end

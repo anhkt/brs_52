@@ -132,9 +132,14 @@ en:
       updated: "%{model_name} was updated successfully!"
       permission_denied: "You are not authorized to access this page."
 
+  notifications:
+    titles:
+      all: "Notifications"
+
   time:
     formats:
       short: "%d-%B-%Y"
+
   home_pages:
     goodread_blog: "Goodreads Blog"
     categories: "Categories"
