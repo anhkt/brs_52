@@ -8,6 +8,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       t.boolean :is_admin, null: false, default: false
       t.string :avatar
       t.boolean :seen_noti, default: false
+      t.integer :number_noti, default: 0
 
       ## Recoverable
       t.string   :reset_password_token

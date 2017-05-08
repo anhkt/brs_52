@@ -28,7 +28,7 @@
         <% end %>
         <span><%= comment.content %></span>
       </div>
-      <span class="comment-like">
+      <span class="comment-like-<%= comment.id %>">
         <% if current_user.like comment %>
           <%= render "likes/dislikes", like: current_user.like(comment), target: comment %>
         <% else %>

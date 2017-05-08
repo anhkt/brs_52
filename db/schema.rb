@@ -161,6 +161,7 @@ ActiveRecord::Schema.define(version: 20170507171700) do
     t.boolean  "is_admin",               default: false, null: false
     t.string   "avatar"
     t.boolean  "seen_noti",              default: false
+    t.integer  "number_noti",            default: 0
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
