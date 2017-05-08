@@ -58,6 +58,8 @@ module ApplicationHelper
       end
     when "reported"
       "#{notification.user.email} #{notification.action} review!"
+    when "banned"
+      "#{notification.user.email} #{notification.action} your review!"
     end
   end
 

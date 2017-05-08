@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   resources :relationships, only: [:create, :destroy]
   resources :user_books, only: [:create, :update]
   resources :reports, only: :create
-  resources :notifications, only: [:index, :create]
+  resources :notifications, only: [:index, :update]
 
   namespace :update_notification do
     resource :users, only: :update

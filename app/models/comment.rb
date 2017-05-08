@@ -18,14 +18,14 @@ class Comment < ApplicationRecord
       users = users - [self.user]
       users.uniq.each do |recipient|
         Notification.create(recipient: recipient, user: self.user,
-          action: "commented", notifiable: recipient)
+          action: "commented", notifiable: self)
       end
     else
       users = [self.parent.user] + self.parent.children.map(&:user)
       users = users - [self.user]
       users.uniq.each do |recipient|
         Notification.create(recipient: recipient, user: self.user,
-          action: "replied", notifiable: recipient)
+          action: "replied", notifiable: self.parent)
       end
     end
   end
