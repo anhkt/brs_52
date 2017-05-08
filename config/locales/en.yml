@@ -84,8 +84,9 @@ en:
     rated_it: "rated it"
     likes: "%{number} Likes"
     rate_book: "Rate this book"
-    write_review: "Write reivew"
+    write_review: "Write review"
     my_book: "My Book"
+    rating: "rating"
 
   users:
     titles:

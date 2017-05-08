@@ -60,4 +60,9 @@ module ApplicationHelper
       "#{notification.user.email} #{notification.action} review!"
     end
   end
+
+  def round_rating rating
+    return 0 unless rating
+    (rating * 2).round / 2.0
+  end
 end

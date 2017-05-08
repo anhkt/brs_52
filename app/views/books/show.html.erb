@@ -10,13 +10,18 @@
       </div>
       <div class="rate-book">
         <p><%= t "books.rate_book" %></p>
-        rate
+        <div class="rating">
+          <%= render "rating_form" %>
+        </div>
       </div>
     </div>
   </div>
   <div class="col-md-9">
     <p class="title"><%= @book.title %></p>
     <i><%= t "books.by", author:  @book.author %></i>
+    <div class="book-rating">
+      <%= render "book_rating" %>
+    </div>
     <div class="content">
       <div class="description-less">
         <%= truncate @book.description, length: 300 %>
