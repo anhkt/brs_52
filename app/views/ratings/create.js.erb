@@ -1,2 +1,2 @@
 $('.rating').html('<%= j render "books/rating_form" %>');
-$('.book-rating').html('<%= j render "books/book_rating" %>')
+$('.book-rating').html('<%= j render "books/book_rating", book: @book %>')
