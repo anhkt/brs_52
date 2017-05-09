@@ -20,7 +20,7 @@
     <p class="title"><%= @book.title %></p>
     <i><%= t "books.by", author:  @book.author %></i>
     <div class="book-rating">
-      <%= render "book_rating" %>
+      <%= render "book_rating", book: @book %>
     </div>
     <div class="content">
       <div class="description-less">

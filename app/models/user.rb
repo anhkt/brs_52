@@ -22,6 +22,8 @@ class User < ApplicationRecord
   has_many :reports, dependent: :destroy
   has_many :ratings, dependent: :destroy
 
+  mount_uploader :avatar, ImageUploader
+
   def like target
     likes.find_by likeable_id: target, likeable_type: target.class
   end

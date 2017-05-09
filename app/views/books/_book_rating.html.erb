@@ -1,4 +1,4 @@
-<% rating = round_rating @book.ratings.plus.average(:rating) %>
+<% rating = round_rating book.ratings.plus.average(:rating) %>
 <% 1.upto 5 do |index| %>
   <%
     star =
@@ -13,4 +13,4 @@
 
   <i class="fa <%= star %> rate"></i>
 <% end %>
-<%= rating %> (<%= pluralize @book.ratings.plus.count, t("books.rating") %>)
+<%= rating %> (<%= pluralize book.ratings.plus.count, t("books.rating") %>)

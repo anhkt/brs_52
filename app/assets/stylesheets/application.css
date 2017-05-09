@@ -16,7 +16,7 @@
  *= require books
  *= require categories
  *= require main
- *= require rating
  *= require custom
+ *= require rating
  *= require_self
  */
