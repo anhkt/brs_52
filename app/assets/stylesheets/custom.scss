@@ -88,12 +88,12 @@ p {
 /* footer */
 
 footer {
-  margin-top: 45px;
   padding-top: 5px;
   border-top: 1px solid $gray-medium-light;
   color: $gray-light;
+
   a {
-    color: $gray;
+    color: $gray;footer
     &:hover {
       color: $gray-darker;
     }
@@ -116,6 +116,12 @@ footer {
 
   img {
     max-height: 300px;
+  }
+}
+
+.title {
+  a:hover {
+    text-decoration: none;
   }
 }
 
@@ -213,6 +219,10 @@ footer {
       padding-top: 20px !important;
     }
   }
+
+}
+.td-fix-devise {
+  margin-top: 20px !important;
 }
 
 .td-css-box {
