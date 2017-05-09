@@ -1,6 +1,10 @@
 class BooksController < ApplicationController
   load_and_authorize_resource
 
+  def index
+    Book.all
+  end
+
   def show
     @reviews = @book.reviews
     @user_book =

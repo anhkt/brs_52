@@ -1,59 +1,192 @@
 <% provide :title, t("home") %>
 <div class="home-page">
   <% if user_signed_in? %>
-    <h1><%= I18n.t "home_pages.goodread_blog" %></h1>
-    <div class="col-md-3">
-      <h3 class="col-md-offset-2"><%= I18n.t "home_pages.categories" %></h3>
-      <div class="categories">
-        <ul class="group-categories">
-          <% @categories.each do |category| %>
-            <li class="category-item">
-              <%= category.name %>
-            </li>
-          <% end %>
-        </ul>
+    <div class="col-sm-3 td-left-nav">
+      <div class="td-right-nav-title">
+        <h4>
+          <%= image_tag "book.svg" %>
+          What are you reading?
+        </h4>
       </div>
+      <hr>
+      <div class="td-right-nav-content">
+        <h3>
+          2017 MOST POPULAR
+        </h3>
+        <p>The most anticipated book!</p>
+        <div class="col-sm-5">
+          <div class="row td-img-book-popular">
+            <% if @book_challenge.first.image %>
+              <%= link_to book_path(@book_challenge.first) do %>
+                <%= image_tag @book_challenge.first.image, class: "img-responsive" %>
+              <% end %>
+            <% else %>
+              <%= link_to book_path(@book_challenge.first) do %>
+                <%= image_tag "book.jpg", class: "img-responsive" %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+        <div class="col-sm-7">
+          <div class="book-rating">
+            <% rating = round_rating @book_challenge.first.ratings
+              .plus.average(:rating) %>
+            <% 1.upto 5 do |index| %>
+              <%
+                star =
+                  if index <= rating
+                    "fa-star"
+                  elsif index - 0.5 == rating
+                    "fa-star-half-o"
+                  else
+                    "fa-star-o"
+                  end
+              %>
 
-      <div class="follow-us">
-        <h4 class="col-md-offset-2"><%= I18n.t "home_pages.follow_us" %></h3>
-        <ul>
-          <li>
-            <%= link_to "#" do %>
-              <i class="fa fa-facebook" aria-hidden="true"></i>
-              <%= I18n.t "home_pages.fb" %>
+              <i class="fa <%= star %> rate"></i>
             <% end %>
-          </li>
-          <li>
-            <%= link_to "#" do %>
-              <i class="fa fa-twitch" aria-hidden="true"></i>
-              <%= I18n.t "home_pages.twitter" %>
-            <% end %></li>
-          <li>
-            <%= link_to "#" do %>
-              <i class="fa fa-google-plus-square" aria-hidden="true"></i>
-              <%= I18n.t "home_pages.google" %>
-            <% end %>
-          </li>
-
-          <li>
-            <%= link_to "#" do %>
-              <i class="fa fa-envelope" aria-hidden="true"></i>
-              <%= I18n.t "home_pages.zalo" %>
-            <% end %>
-          </li>
-        </ul>
+          </div>
+          <div class="book-status">
+            <%= render "user_books/change_statuses" %>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+      <hr>
+      <div class="td-right-nav-footer">
+        <h3>Want to read?</h3>
+        <%= link_to "View all book", books_path %>
+        <div class="td-view-all-book"></div>
       </div>
     </div>
+    <div class="col-sm-6 col-sm-offset-3 padding-50">
+      <% @reviews.each do |review| %>
+        <div class="review review-<%= review.id %> clearfix">
+          <div class="col-sm-12 td-user-review-title">
+            <div class="inline-block td-home-user-review">
+              <%= user_avatar review.user %>
+            </div>
+            <div class="inline-block user-info-review">
+              <div class="user inline-block">
+                <%= link_to review.user.name, user_path(review.user) %>
+                <%= t "books.rated_it" %>
+              </div>
+              <div class="time-create-review inline-block float-right">
+                <%= time_ago_in_words review.created_at %>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12 td-user-review-content">
+            <div class="col-md-12">
+              <div class="content-review-less">
+                <%= truncate review.content, length: 200 %>
+                <%= link_to t("books.more"), "#", class: "show-more", remote: true %>
+              </div>
 
-    <div class="col-md-9 books">
-      <% @books.each do |book| %>
-        <div class="col-md-4 book">
-          <%= book_image book %>
-          <div class="title">
-            <%= link_to book.title, book_path(book)%>
+              <div class="content-review-full hidden">
+                <%= review.content %>
+                <%= link_to t("books.less"), "#", class: "show-less", remote: true %>
+              </div>
+            </div>
+
+            <div class="col-md-12 like">
+              <span class="review-like">
+                <% if current_user.like review %>
+                  <%= render "likes/dislikes", like: current_user.like(review),
+                    target: review %>
+                <% else %>
+                  <%= render "likes/likes", target: review %>
+                <% end %>
+              </span>
+              <%= link_to t("reviews.actions.see"), review_path(review) %>
+            </div>
           </div>
         </div>
       <% end %>
+    </div>
+    <div class="col-sm-3 td-right-nav">
+      <h3>The goodreads blog</h3>
+      <p>4 Great New Book</p>
+      <div class="col-sm-12 height-100">
+        <div class="col-sm-7">
+          <div class="row">
+            <% if @book_challenge.second.image %>
+              <%= link_to book_path(@book_challenge.first) do %>
+                <%= image_tag @book_challenge.first.image,
+                  class: "img-responsive" %>
+              <% end %>
+            <% else %>
+              <%= link_to book_path(@book_challenge.first) do %>
+                <%= image_tag "book.jpg", class: "img-responsive" %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+        <div class="col-sm-5">
+          <div class="row">
+            <% if @book_challenge.third.image %>
+              <%= link_to book_path(@book_challenge.first) do %>
+                <%= image_tag @book_challenge.first.image,
+                  class: "img-responsive" %>
+              <% end %>
+            <% else %>
+              <%= link_to book_path(@book_challenge.first) do %>
+                <%= image_tag "book.jpg", class: "img-responsive" %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 height-100">
+        <div class="col-sm-5">
+          <div class="row">
+            <% if @book_challenge.fourth.image %>
+              <%= link_to book_path(@book_challenge.first) do %>
+                <%= image_tag @book_challenge.first.image,
+                  class: "img-responsive" %>
+              <% end %>
+            <% else %>
+              <%= link_to book_path(@book_challenge.first) do %>
+                <%= image_tag "book.jpg", class: "img-responsive" %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+        <div class="col-sm-7">
+          <div class="row">
+            <% if @book_challenge.fifth.image %>
+              <%= link_to book_path(@book_challenge.first) do %>
+                <%= image_tag @book_challenge.first.image,
+                  class: "img-responsive" %>
+              <% end %>
+            <% else %>
+              <%= link_to book_path(@book_challenge.first) do %>
+                <%= image_tag "book.jpg", class: "img-responsive" %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+      <hr>
+      <div class="col-sm-12 td-home-footer">
+        <div class="col-sm-6">
+          <ul class="row">
+            <li><%= link_to "About Us", "#" %></li>
+            <li><%= link_to "Authors", "#" %></li>
+            <li><%= link_to "Our Blog", "#" %></li>
+            <li class="td-mobile"><%= link_to "Mobile Version", "#" %></li>
+            <li class="td-copyright"><%= link_to "© 2017 Goodreads", "#" %></li>
+          </ul>
+        </div>
+        <div class="col-sm-6">
+          <ul>
+            <li><%= link_to "Advertise", "#" %></li>
+            <li><%= link_to "Terms", "#" %></li>
+            <li><%= link_to "Privacy", "#" %></li>
+          </ul>
+        </div>
+      </div>
     </div>
   <% end %>
 </div>

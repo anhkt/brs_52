@@ -231,3 +231,114 @@ footer {
   background: #f4f4f4;
   padding: 10px 15px;
 }
+
+.td-img-book-popular {
+  img {
+    height: 200px;
+  }
+}
+
+.home-page {
+  .review {
+    background: #f3f3f3;
+    margin-bottom: 20px;
+    box-shadow: 2px 2px 5px #D9D9D9;
+    padding: 20px !important;
+    border-radius: 3px;
+  }
+}
+
+.inline-block {
+  display: inline-block !important;
+}
+
+.td-user-review-title {
+  padding-top: 10px;
+  padding-left: 75px;
+
+  .user-info-review {
+    width: 100%;
+  }
+
+  .td-home-user-review {
+    position: absolute;
+    left: 10px;
+    top: -5px;
+
+    img {
+      height: 50px;
+      width: 50px;
+    }
+  }
+
+  .time-create-review {
+    font-style: italic;
+  }
+}
+
+.td-right-nav-content {
+  .book-status {
+    margin-top: 30px;
+  }
+}
+
+.float-right {
+  float: right;
+}
+
+.td-user-review-content {
+  padding-top: 20px;
+}
+
+.height-100 {
+  img {
+    height: 100px !important;
+    margin: 0 !important;
+    padding: 0 5px;
+  }
+}
+
+.td-home-footer {
+  ul {
+    padding: 0 !important;
+
+    li {
+      list-style: none;
+    }
+
+    a {
+      color: #8a8a8a;
+      font-weight: 600;
+    }
+
+    a:hover {
+      text-decoration: none;
+      color: #333;
+    }
+
+    .td-mobile {
+      margin-top: 20px;
+    }
+
+    .td-copyright {
+      a {
+        font-style: italic;
+        font-weight: 400 !important;
+      }
+    }
+  }
+}
+
+.padding-50 {
+  padding-top: 50px;
+}
+
+.td-left-nav {
+  left: 0;
+  position: fixed;
+}
+
+.td-right-nav {
+  position: fixed;
+  right: 0;
+}

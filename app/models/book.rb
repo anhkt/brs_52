@@ -4,6 +4,8 @@ class Book < ApplicationRecord
   ATTRIBUTES_PARAMS = [:title, :author, :description, :image, :publish_date,
     :number_of_pages, :category_id]
 
+  scope :book_challenge, ->{order rating: :asc}
+
   belongs_to :category
 
   has_many :reviews, dependent: :destroy
