@@ -25,6 +25,8 @@ $(document).on('turbolinks:load', function() {
     for (var i = selected + 1; i<= 5; i++) {
       $('.star-' + i).removeClass('rate');
     }
-    $(this).closest('form').submit();
+    if ($(this).hasClass('submit')) {
+      $(this).closest('form').submit();
+    }
   });
 })

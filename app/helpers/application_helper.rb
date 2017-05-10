@@ -63,11 +63,6 @@ module ApplicationHelper
     end
   end
 
-  def round_rating rating
-    return 0 unless rating
-    (rating * 2).round / 2.0
-  end
-
   def link_to_add_fields name, f, type
     new_object = f.object.send "build_#{type}"
     id = "new_#{type}"

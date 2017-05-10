@@ -109,9 +109,11 @@ ActiveRecord::Schema.define(version: 20170507171700) do
     t.integer  "rating",     default: 0
     t.integer  "user_id"
     t.integer  "book_id"
+    t.integer  "review_id"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.index ["book_id"], name: "index_ratings_on_book_id"
+    t.index ["review_id"], name: "index_ratings_on_review_id"
     t.index ["user_id"], name: "index_ratings_on_user_id"
   end
 

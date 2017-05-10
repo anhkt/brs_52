@@ -74,6 +74,8 @@
             <div class="user">
               <%= link_to review.user.name, user_path(review.user) %>
               <%= t "books.rated_it" %>
+              <%= render "ratings/stars",
+                rating: review.rating ? review.rating.rating : 0 %>
             </div>
             <div class="time-create-review">
             <%= l review.created_at, format: :short %>

@@ -6,17 +6,31 @@
     <%= f.hidden_field :book_id, value: @book.id %>
   <% end %>
 
-  <div class="col-md-12">
-    <div class="form-group">
-      <%= f.text_area :content, class: "ckeditor" %>
-    </div>
+  <%= f.fields_for :rating, @rating do |builder|%>
+    <% if @rating.new_record? %>
+      <%= builder.hidden_field :book_id, value: @book.id %>
+      <%= builder.hidden_field :user_id, value: current_user.id %>
+    <% end %>
+    <%= builder.hidden_field :rating, id: "rating_rating" %>
+  <% end %>
+
+  <div class="form-group rating">
+    <span class="rating-stars">
+      <i class="fa fa-remove rating-star star-0" data-index="0"></i>
+      <% 1.upto 5 do |index| %>
+        <i class="fa fa-star rating-star star-<%= index %>
+          <%= (@review && @review.rating && index <= @review.rating.rating) ? 'rate' : '' %>"
+          data-index="<%= index %>"></i>
+      <% end %>
+    </span>
   </div>
 
-  <div class="col-md-12">
-    <div class="form-group">
-      <%= f.submit t("buttons.save"),
-        data: {disable_with: t("buttons.saving")},
-        class: "btn btn-lg btn-success pull-right" %>
-    </div>
+  <div class="form-group">
+    <%= f.text_area :content, class: "ckeditor" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit t("buttons.save"), data: {disable_with: t("buttons.saving")},
+      class: "btn btn-lg btn-success pull-right" %>
   </div>
 <% end %>
