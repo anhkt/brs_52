@@ -68,9 +68,12 @@ en:
       create: "Create new category"
       update: "Update category"
       all: "Categories"
+      all_book: All %{name}'s book
+      book: book
 
   books:
     book: "Book"
+    by_author: "by"
     headers:
       title: "Title"
       author: "Author"

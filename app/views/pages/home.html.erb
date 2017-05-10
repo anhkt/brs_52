@@ -46,8 +46,8 @@
               <i class="fa <%= star %> rate"></i>
             <% end %>
           </div>
-          <div class="book-status">
-            <%= render "user_books/change_statuses" %>
+          <div class="book-status-<%= @user_book.book_id %>">
+            <%= render "user_books/change_statuses", user_book: @user_book %>
           </div>
         </div>
         <div class="clearfix"></div>

@@ -77,4 +77,16 @@ module ApplicationHelper
     link_to name, "#", class: "add_fields btn btn-success",
       data: {id: id, fields: fields.gsub("\n", "")}
   end
+
+  def mark_book book
+    if current_user.mark_book? book
+      current_user.user_books.find_by book: book
+    else
+      current_user.user_books.new book: book
+    end
+  end
+
+  def image_book book
+    book.image ? book.image : "book.jpg"
+  end
 end
