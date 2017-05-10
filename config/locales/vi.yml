@@ -1,0 +1,228 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+vi:
+  welcome: "Welcome to the"
+  title_page: "Book Review System"
+  home: "Home"
+  slogan: "Meet your next favourite book"
+  framgia: "Framgia VietNam"
+  posted_ago: "Posted %{time} ago"
+  sort: "Sort"
+
+  buttons:
+    new: "New"
+    edit: "Edit"
+    delete: "Delete"
+    reply: "Reply"
+    comment: "Comment"
+    commenting: "Commenting.."
+    save: "Save"
+    saving: "Saving"
+    follow: "Follow"
+    unfollow: "Unfollow"
+    report: "Report"
+    cancel: "Cancel"
+    view_all: "View all"
+    add_condition: "Add condition"
+    search: "Search"
+
+  form:
+    confirmation: "Are you sure?"
+    error: "error"
+    inform_error: "The form contain %{error}"
+
+  comments:
+    header:
+      content: "Enter comment ..."
+
+  reviews:
+    actions:
+      create: "Create new review"
+      update: "Update review"
+      see: "See review"
+
+  categories:
+    category: "Category"
+    headers:
+      name: "Name"
+    actions:
+      create: "Create new category"
+      update: "Update category"
+      all: "Categories"
+
+  books:
+    book: "Book"
+    headers:
+      title: "Title"
+      author: "Author"
+      description: "Description"
+      image: "Book image"
+      publish_date: "Publish"
+      number_of_pages: "Number pages"
+    actions:
+      create: "Create new book"
+      update: "Update book"
+    by: "by %{author}"
+    more: "(more)"
+    less: "(less)"
+    published: "Published %{date}"
+    reviews: "Reviews"
+    rated_it: "rated it"
+    likes: "%{number} Likes"
+    rate_book: "Rate this book"
+    write_review: "Write review"
+    my_book: "My Book"
+    rating: "rating"
+
+  users:
+    titles:
+      all: Users
+    headers:
+      avatar: "User profile picture"
+      follower: "Follower"
+      following: "Following"
+      name: "Name"
+      email: "Email"
+    tabs:
+      settings: "Setting"
+      activities: "Activity"
+    edit: "Edit user"
+    noti_password: "leave blank if you don't want to change it"
+
+  user_books:
+    statuses:
+      want_to_read: "Want to read"
+      reading: "Currently Reading"
+      read: "Read"
+
+  reports:
+    report: "Report"
+    titles:
+      all: "Reports"
+    headers:
+      reason: "Reason"
+      user: "User"
+      review: "Review"
+
+  dashboards:
+    statistics:
+      info: "Statistic"
+
+  flashs:
+    messages:
+      created: "%{model_name} was created successfully!"
+      not_created: "%{model_name} couldn't be created!"
+      deleted: "%{model_name} was deleted successfully!"
+      not_deleted: "%{model_name} couldn't be deleted!"
+      not_updated: "%{model_name} couldn't be updated"
+      updated: "%{model_name} was updated successfully!"
+      permission_denied: "You are not authorized to access this page."
+
+  notifications:
+    titles:
+      all: "Notifications"
+
+  datetime:
+    formats:
+      default: "%Y-%m-%d"
+      long: "%B %d, %Y"
+      short: "%b %d"
+
+  home_pages:
+    goodread_blog: "Goodreads Blog"
+    categories: "Categories"
+    follow_us: "Follow us"
+    fb: "Facebook"
+    twitter: "Twitter"
+    google: "Google"
+    zalo: "Zalo"
+  author: "Author"
+
+  ransack:
+    search: "search"
+    predicate: "predicate"
+    and: "and"
+    or: "or"
+    any: "any"
+    all: "all"
+    combinator: "combinator"
+    attribute: "attribute"
+    value: "value"
+    condition: "condition"
+    sort: "sort"
+    asc: "ascending"
+    desc: "descending"
+    predicates:
+      eq: "equals"
+      eq_any: "equals any"
+      eq_all: "equals all"
+      not_eq: "not equal to"
+      not_eq_any: "not equal to any"
+      not_eq_all: "not equal to all"
+      matches: "matches"
+      matches_any: "matches any"
+      matches_all: "matches all"
+      does_not_match: "doesn't match"
+      does_not_match_any: "doesn't match any"
+      does_not_match_all: "doesn't match all"
+      lt: "less than"
+      lt_any: "less than any"
+      lt_all: "less than all"
+      lteq: "less than or equal to"
+      lteq_any: "less than or equal to any"
+      lteq_all: "less than or equal to all"
+      gt: "greater than"
+      gt_any: "greater than any"
+      gt_all: "greater than all"
+      gteq: "greater than or equal to"
+      gteq_any: "greater than or equal to any"
+      gteq_all: "greater than or equal to all"
+      in: "in"
+      in_any: "in any"
+      in_all: "in all"
+      not_in: "not in"
+      not_in_any: "not in any"
+      not_in_all: "not in all"
+      cont: "chứa"
+      cont_any: "contains any"
+      cont_all: "contains all"
+      not_cont: "doesn't contain"
+      not_cont_any: "doesn't contain any"
+      not_cont_all: "doesn't contain all"
+      start: "starts with"
+      start_any: "starts with any"
+      start_all: "starts with all"
+      not_start: "doesn't start with"
+      not_start_any: "doesn't start with any"
+      not_start_all: "doesn't start with all"
+      end: "ends with"
+      end_any: "ends with any"
+      end_all: "ends with all"
+      not_end: "doesn't end with"
+      not_end_any: "doesn't end with any"
+      not_end_all: "doesn't end with all"
+      "true": "is true"
+      "false": "is false"
+      present: "is present"
+      blank: "is blank"
+      "null": "is null"
+      not_null: "is not null"

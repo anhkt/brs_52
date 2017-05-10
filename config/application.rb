@@ -14,5 +14,13 @@ module Project1
 
     config.autoload_paths += %w(#{config.root}/app/models/ckeditor)
     config.action_view.embed_authenticity_token_in_remote_forms = true
+    config.i18n.default_locale = :en
+    I18n.config.enforce_available_locales = true
+    config.i18n.available_locales = [:en, :vi]
+
+    config.i18n.load_path += Dir[Rails.root.join("config", "locales", "**",
+      "*.{rb,yml}")]
+    config.time_zone = "Hanoi"
+    config.active_record.default_timezone = :local
   end
 end
