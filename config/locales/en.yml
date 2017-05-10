@@ -28,6 +28,7 @@ en:
   posted_ago: "Posted %{time} ago"
 
   buttons:
+    new: "New"
     edit: "Edit"
     delete: "Delete"
     reply: "Reply"
@@ -66,6 +67,7 @@ en:
       all: "Categories"
 
   books:
+    book: "Book"
     headers:
       title: "Title"
       author: "Author"
