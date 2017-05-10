@@ -23,14 +23,8 @@
       </div>
       <div class="show-best-book">
         <div class="col-sm-3">
-          <% if @best_book.image %>
-            <%= link_to book_path(@best_book) do %>
-              <%= image_tag @best_book.image, class: "img-responsive img-book" %>
-            <% end %>
-          <% else %>
-            <%= link_to book_path(@best_book) do %>
-              <%= image_tag "book.jpg", class: "img-responsive img-book" %>
-            <% end %>
+          <%= link_to book_path(@best_book) do %>
+            <%= image_tag image_book(@best_book), class: "img-responsive img-book" %>
           <% end %>
         </div>
         <div class="col-sm-6">
@@ -41,7 +35,7 @@
             <%= link_to book_path @best_book do %>
               <h3><%= @best_book.title %></h3>
             <% end %>
-            <p class="best-book-author">by <span>
+            <p class="best-book-author"><%= t "books.by_author" %><span>
               <%= @best_book.author %></span></p>
           </div>
           <div class="book-description">
@@ -64,7 +58,9 @@
           </div>
         </div>
         <div class="col-sm-3">
-          <%= render "user_books/change_statuses" %>
+          <div class="book-status-<%= @user_book.book_id %>">
+            <%= render "user_books/change_statuses", user_book: @user_book %>
+          </div>
         </div>
       </div>
       <div class="clearfix"></div>
@@ -73,30 +69,25 @@
     </div>
     <div class="book">
       <h2 class="td-list-book-title text-left">
-        <span>All <%= @category.name %>'s book</span> •
-        <%= @books.size %>
-        books
+        <span>
+          <%= t "categories.actions.all_book", name: @category.name %>
+        </span> •
+        <%= pluralize @books.size, t("categories.actions.book") %>
       </h2>
       <% @books.each do |book| %>
         <div class="col-sm-3 book-show-category">
           <% rating = round_rating book.ratings.plus.average(:rating) %>
-          <p class="book-rate"><%= pluralize book.ratings.plus.count, t("books.rating") %></p>
+          <p class="book-rate">
+            <%= pluralize book.ratings.plus.count, t("books.rating") %>
+          </p>
           <div class="book-image">
-            <% if book.image %>
-              <%= link_to book_path(book) do %>
-                <%= image_tag book.image, class: "img-responsive img-book" %>
-              <% end %>
-            <% else %>
-              <%= link_to book_path(book) do %>
-                <%= image_tag "book.jpg", class: "img-responsive img-book" %>
-              <% end %>
+            <%= link_to book_path(book) do %>
+              <%= image_tag image_book(book), class: "img-responsive img-book" %>
             <% end %>
           </div>
-          <select class="form-control btn btn-success btn-block">
-            <option value="Want To Read">Want To Read</option>
-            <option value="Currently Reading">Currently Reading</option>
-            <option value="Read">Read</option>
-          </select>
+          <div class="book-status-<%= book.id %>">
+            <%= render "user_books/change_statuses", user_book: mark_book(book) %>
+          </div>
           <div class="book-rating text-center">
             <% 1.upto 5 do |index| %>
               <%

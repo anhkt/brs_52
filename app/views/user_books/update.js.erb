@@ -1,1 +1,2 @@
-$('.book-status').html('<%= j render "user_books/change_statuses" %>')
+$('.book-status-<%= @user_book.book_id %>')
+  .html('<%= j render "user_books/change_statuses", user_book: @user_book %>')
