@@ -14,4 +14,11 @@ class Book < ApplicationRecord
   has_many :ratings, dependent: :destroy
 
   mount_uploader :image, ImageUploader
+
+  private
+  UNRANSACKABLE_ATTRIBUTES = ["id", "updated_at", "category_id", "created_at", "description"]
+
+  def self.ransackable_attributes auth_object = nil
+    column_names - UNRANSACKABLE_ATTRIBUTES + _ransackers.keys
+  end
 end

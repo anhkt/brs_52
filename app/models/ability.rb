@@ -7,6 +7,7 @@ class Ability
     if user.is_admin?
       can :manage, :all
     else
+      can :show, Category
       can [:create, :new, :show], Review
       can [:edit, :update, :destroy], Review, Review do |review|
         review.user_id == user.id
@@ -15,7 +16,7 @@ class Ability
       can [:edit, :update, :destroy], Comment, Comment do |comment|
         comment.user_id == user.id
       end
-      can :show, Book
+      can [:index, :show], Book
       can :create, UserBook
       can :update, UserBook, UserBook do |user_book|
         user_book.user_id == user.id

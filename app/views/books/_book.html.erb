@@ -1,0 +1,7 @@
+<tr>
+  <td><%= link_to book.title, book %></td>
+  <td><%= book.author %></td>
+  <td><%= book.number_of_pages %></td>
+  <td><%= book.publish_date.strftime t("datetime.formats.default") %></td>
+  <td><%= link_to book.category.name, book.category %></td>
+</tr>
