@@ -5,7 +5,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
           <% Settings.languages.each do |_, val| %>
-            <div class="col-xs-4 text-center">
+            <div class="col-xs-6 text-center full-height">
               <%= link_to params.except!(*["q", "month"]).merge(locale: val),
                 data: {no_turbolink: true} do %>
                 <%= image_tag "#{val}.png", size: Settings.flag_size %>

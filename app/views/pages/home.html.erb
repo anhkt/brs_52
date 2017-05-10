@@ -98,7 +98,7 @@
                   <%= render "likes/likes", target: review %>
                 <% end %>
               </span>
-              <%= link_to t("reviews.actions.see"), review_path(review) %>
+              <%= link_to t("reviews.actions.see"), book_path(review.book) %>
             </div>
           </div>
         </div>
