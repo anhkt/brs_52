@@ -48,6 +48,10 @@ class User < ApplicationRecord
     mark_books.include? book
   end
 
+  def favorite book
+    favorite_books.find_by book: book
+  end
+
   private
 
   def password_required?

@@ -25,6 +25,9 @@ class Ability
       can :update, Notification, Notification do |notification|
         notification.recipient_id == user.id
       end
+      can :destroy, FavoriteBook, FavoriteBook do |favorite_book|
+        favorite_book.user_id == user.id
+      end
     end
   end
 end

@@ -18,7 +18,11 @@
   </div>
   <div class="col-md-9">
     <p class="title"><%= @book.title %></p>
-    <i><%= t "books.by", author:  @book.author %></i>
+    <i><%= t "books.by", author:  @book.author %>
+      <span class="favorite-book-<%= @book.id %>">
+        <%= render "favorite_books/favorite_book", book: @book %>
+      </span>
+    </i>
     <div class="book-rating">
       <%= render "book_rating", book: @book %>
     </div>
