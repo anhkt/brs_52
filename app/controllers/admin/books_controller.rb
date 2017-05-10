@@ -3,7 +3,10 @@ class Admin::BooksController < ApplicationController
   load_and_authorize_resource :category, only: [:new, :create]
 
   def index
-
+    @search = Book.search params[:q]
+    @search.build_condition if @search.conditions.empty?
+    @search.build_sort if @search.sorts.empty?
+    @books = @search.result
   end
 
   def new

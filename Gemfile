@@ -32,6 +32,7 @@ gem "font-awesome-sass"
 gem "kaminari"
 gem "redis", "~> 3.0"
 gem "highcharts-rails"
+gem "ransack"
 
 group :development, :test do
   gem "byebug", platform: :mri

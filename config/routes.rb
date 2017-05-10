@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   resources :user_books, only: [:create, :update]
   resources :reports, only: :create
   resources :notifications, only: [:index, :update]
+  resources :categories, only: :show
 
   namespace :update_notification do
     resource :users, only: :update

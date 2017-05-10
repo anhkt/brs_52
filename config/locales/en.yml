@@ -26,6 +26,7 @@ en:
   slogan: "Meet your next favourite book"
   framgia: "Framgia VietNam"
   posted_ago: "Posted %{time} ago"
+  sort: "Sort"
 
   buttons:
     new: "New"
@@ -41,6 +42,8 @@ en:
     report: "Report"
     cancel: "Cancel"
     view_all: "View all"
+    add_condition: "Add condition"
+    search: "Search"
 
   form:
     confirmation: "Are you sure?"
@@ -138,9 +141,11 @@ en:
     titles:
       all: "Notifications"
 
-  time:
+  datetime:
     formats:
-      short: "%d-%B-%Y"
+      default: "%Y-%m-%d"
+      long: "%B %d, %Y"
+      short: "%b %d"
 
   home_pages:
     goodread_blog: "Goodreads Blog"

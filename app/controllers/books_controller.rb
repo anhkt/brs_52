@@ -2,7 +2,10 @@ class BooksController < ApplicationController
   load_and_authorize_resource
 
   def index
-    Book.all
+    @search = Book.search params[:q]
+    @search.build_condition if @search.conditions.empty?
+    @search.build_sort if @search.sorts.empty?
+    @books = @search.result
   end
 
   def show
