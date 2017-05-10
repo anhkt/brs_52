@@ -3,6 +3,16 @@
     <%= link_to t("title_page"), root_path, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
+        <li>
+          <% Settings.languages.each do |_, val| %>
+            <div class="col-xs-4 text-center">
+              <%= link_to params.except!(*["q", "month"]).merge(locale: val),
+                data: {no_turbolink: true} do %>
+                <%= image_tag "#{val}.png", size: Settings.flag_size %>
+              <% end %>
+            </div>
+          <% end %>
+        </li>
         <% if user_signed_in? %>
           <% if current_user.is_admin? %>
             <li><%= link_to t("categories.category"), admin_categories_path %></li>
