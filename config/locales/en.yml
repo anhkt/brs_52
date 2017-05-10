@@ -84,6 +84,8 @@ en:
     actions:
       create: "Create new book"
       update: "Update book"
+      unfavorite: "Unfavorite"
+      favourite: "Favourite"
     by: "by %{author}"
     more: "(more)"
     less: "(less)"

@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     resources :reports, only: :create
     resources :notifications, only: [:index, :update]
     resources :categories, only: :show
+    resources :favorite_books, only: [:create, :destroy]
 
     namespace :update_notification do
       resource :users, only: :update
