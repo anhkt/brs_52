@@ -41,7 +41,7 @@ class ReviewsController < ApplicationController
     else
       flash[:alert] = flash_message "not_deleted"
     end
-    redirect_to @review.book
+    redirect_to root_path
   end
 
   private
