@@ -2,14 +2,10 @@ class BooksController < ApplicationController
   load_and_authorize_resource
 
   def index
-    if current_user.is_admin?
-      @search = Book.search params[:q]
-      @search.build_condition if @search.conditions.empty?
-      @search.build_sort if @search.sorts.empty?
-      @books = @search.result
-    else
-      @books = Book.order_by_time.page(params[:page]).per_page 8
-    end
+    @search = Book.search params[:q]
+    @search.build_condition if @search.conditions.empty?
+    @search.build_sort if @search.sorts.empty?
+    @books = @search.result.order_by_time.page(params[:page]).per_page 8
   end
 
   def show

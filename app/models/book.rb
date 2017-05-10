@@ -4,7 +4,7 @@ class Book < ApplicationRecord
   ATTRIBUTES_PARAMS = [:title, :author, :description, :image, :publish_date,
     :number_of_pages, :category_id]
 
-  scope :book_challenge, ->{order rating: :asc}
+  scope :book_challenge, -> {order rating: :desc}
   scope :order_by_time, -> {order created_at: :desc}
 
   belongs_to :category
