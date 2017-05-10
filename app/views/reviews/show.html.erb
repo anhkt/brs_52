@@ -1,90 +1,74 @@
 <div class="reviews review-<%= @review.id %>">
-  <div class="box">
-    <div class="box-header with-border">
-      <div class="box-tools">
-        <button type="button" class="btn btn-box-tool" data-widget="collapse">
-          <i class="fa fa-minus"></i>
-        </button>
-        <button type="button" class="btn btn-box-tool" data-widget="remove">
-          <i class="fa fa-times"></i>
-        </button>
-      </div>
-    </div>
-
-    <div class="box-body">
-      <div class="col-md-9">
-        <div class="panel">
-          <div class="panel-heading">
-            <%= link_to @review.user.email, @review.user %>
-            <% if can? :update, @review %>
-              <span class="pull-right dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                  <i class="fa fa-caret-down"></i>
-                </a>
-                <ul class="dropdown-menu">
-                  <li>
-                    <%= link_to edit_review_path(@review) do %>
-                      <i class="fa fa-pencil-square-o"></i>
-                      <%= t "buttons.edit" %>
-                    <% end %>
-                  </li>
-                  <li>
-                    <%= link_to @review,
-                      data: {method: :delete, confirm: t("form.confirmation")} do %>
-                      <i class="fa fa-times"></i>
-                      <%= t "buttons.delete" %>
-                    <% end %>
-                  </li>
-                </ul>
-              </span>
-            <% end %>
-            <% if @review.user != current_user && !current_user.is_admin? %>
-              <span class="pull-right dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                  <i class="fa fa-caret-down"></i>
-                </a>
-                <ul class="dropdown-menu">
-                  <li>
-                    <%= link_to "#",
-                      "data-toggle": "modal", "data-target": "#report-modal" do %>
-                      <i class="fa fa-gavel" aria-hidden="true"></i>
-                      <%= t "buttons.report" %>
-                    <% end %>
-                  </li>
-                </ul>
-              </span>
-            <% end %>
-            <div class="timestamp">
-              <%= t "posted_ago", time: time_ago_in_words(@review.created_at) %>
-            </div>
-          </div>
-          <div class="panel-body">
-            <p class="content">
-              <%= @review.content.html_safe %>
-            </p>
-            <span class="review-like-<%= @review.id %>">
-              <% if current_user.like @review %>
-                <%= render "likes/dislikes", like: current_user.like(@review), target: @review %>
-              <% else %>
-                <%= render "likes/likes", target: @review %>
-              <% end %>
-            </span>
-          </div>
-          <div class="panel-footer">
-            <div class="comment-review-<%= @review.id %>"></div>
-            <%= render @review.comments.order(updated_at: :desc) %>
-
-            <div class="comment-form-<%= @review.id %>">
-              <%= render "comments/form", review: @review %>
-            </div>
-          </div>
+  <div class="col-md-9">
+    <div class="panel">
+      <div class="panel-heading">
+        <%= link_to @review.user.email, @review.user %>
+        <% if can? :update, @review %>
+          <span class="pull-right dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+              <i class="fa fa-caret-down"></i>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <%= link_to edit_review_path(@review) do %>
+                  <i class="fa fa-pencil-square-o"></i>
+                  <%= t "buttons.edit" %>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to @review,
+                  data: {method: :delete, confirm: t("form.confirmation")} do %>
+                  <i class="fa fa-times"></i>
+                  <%= t "buttons.delete" %>
+                <% end %>
+              </li>
+            </ul>
+          </span>
+        <% end %>
+        <% if @review.user != current_user && !current_user.is_admin? %>
+          <span class="pull-right dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+              <i class="fa fa-caret-down"></i>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <%= link_to "#",
+                  "data-toggle": "modal", "data-target": "#report-modal" do %>
+                  <i class="fa fa-gavel" aria-hidden="true"></i>
+                  <%= t "buttons.report" %>
+                <% end %>
+              </li>
+            </ul>
+          </span>
+        <% end %>
+        <div class="timestamp">
+          <%= t "posted_ago", time: time_ago_in_words(@review.created_at) %>
         </div>
       </div>
+      <div class="panel-body">
+        <p class="content">
+          <%= @review.content.html_safe %>
+        </p>
+        <span class="review-like-<%= @review.id %>">
+          <% if current_user.like @review %>
+            <%= render "likes/dislikes", like: current_user.like(@review), target: @review %>
+          <% else %>
+            <%= render "likes/likes", target: @review %>
+          <% end %>
+        </span>
+      </div>
+      <div class="panel-footer">
+        <div class="comment-review-<%= @review.id %>"></div>
+        <%= render @review.comments.order(updated_at: :desc) %>
 
-      <div class="col-md-3">
-
+        <div class="comment-form-<%= @review.id %>">
+          <%= render "comments/form", review: @review %>
+        </div>
       </div>
     </div>
+  </div>
+
+  <div class="col-md-3">
 
   </div>
 </div>

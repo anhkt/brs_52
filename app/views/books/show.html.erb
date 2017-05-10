@@ -23,14 +23,20 @@
       <%= render "book_rating", book: @book %>
     </div>
     <div class="content">
-      <div class="description-less">
-        <%= truncate @book.description, length: 300 %>
-        <%= link_to t("books.more"), "#", class: "show-more", remote: true %>
-      </div>
-      <div class="description-full hidden">
-        <%= @book.description %>
-        <%= link_to t("books.less"), "#", class: "show-less", remote: true %>
-      </div>
+      <% if strip_tags(@book.description).length > 300 %>
+        <div class="description-less">
+          <%= truncate strip_tags(@book.description), length: 300 %>
+          <%= link_to t("books.more"), "#", class: "show-more", remote: true %>
+        </div>
+        <div class="description-full hidden">
+          <%= @book.description.html_safe %>
+          <%= link_to t("books.less"), "#", class: "show-less", remote: true %>
+        </div>
+      <% else %>
+        <div class="description-full">
+          <%= @book.description.html_safe %>
+        </div>
+      <% end %>
     </div>
 
     <% if @book.publish_date %>
@@ -71,19 +77,27 @@
           </div>
 
           <div class="col-md-12">
-            <div class="content-review-less">
-              <%= truncate review.content, length: 200 %>
-              <%= link_to t("books.more"), "#", class: "show-more", remote: true %>
-            </div>
+            <% if strip_tags(review.content).length > 200 %>
+              <div class="content-review-less">
+                <%= truncate strip_tags(review.content), length: 200 %>
+                <%= link_to t("books.more"), "#", class: "show-more",
+                  remote: true %>
+              </div>
 
-            <div class="content-review-full hidden">
-              <%= review.content %>
-              <%= link_to t("books.less"), "#", class: "show-less", remote: true %>
-            </div>
+              <div class="content-review-full hidden">
+                <%= review.content.html_safe %>
+                <%= link_to t("books.less"), "#", class: "show-less",
+                  remote: true %>
+              </div>
+            <% else %>
+              <div class="content-review-full">
+                <%= review.content.html_safe %>
+              </div>
+            <% end %>
           </div>
 
           <div class="col-md-12 like">
-            <span class="review-like">
+            <span class="review-like-<%= review.id %>">
               <% if current_user.like review %>
                 <%= render "likes/dislikes", like: current_user.like(review),
                   target: review %>
