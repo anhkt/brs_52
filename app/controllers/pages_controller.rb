@@ -8,10 +8,10 @@ class PagesController < ApplicationController
       if user_signed_in?
         @book_challenge = Book.book_challenge
         @user_book =
-          if current_user.mark_book? @book
-            current_user.user_books.find_by book: @book
+          if current_user.mark_book? @book_challenge.first
+            current_user.user_books.find_by book: @book_challenge.first
           else
-            current_user.user_books.new book: @book
+            current_user.user_books.new book: @book_challenge.first
           end
         @reviews = Review.all
       else

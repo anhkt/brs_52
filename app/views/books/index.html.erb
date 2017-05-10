@@ -1,46 +1,78 @@
-<%= search_form_for @search do |f| %>
-  <%= f.condition_fields do |condition| %>
-    <%= render "condition_fields", f: condition %>
-  <% end %>
-  <br>
-  <p><%= link_to_add_fields t("buttons.add_condition"), f, :condition %></p>
-  <div class="fields">
-    <%= t "sort" %>
-    <div class="column">
-      <%= f.sort_fields do |sort_field| %>
-        <%= sort_field.sort_select Hash.new,
-          class: "large-5 small-4 columns mrs radius" %>
+<% if current_user.is_admin? %>
+  <%= search_form_for @search do |f| %>
+    <%= f.condition_fields do |condition| %>
+      <%= render "condition_fields", f: condition %>
+    <% end %>
+    <br>
+    <p><%= link_to_add_fields t("buttons.add_condition"), f, :condition %></p>
+    <div class="fields">
+      <%= t "sort" %>
+      <div class="column">
+        <%= f.sort_fields do |sort_field| %>
+          <%= sort_field.sort_select Hash.new,
+            class: "large-5 small-4 columns mrs radius" %>
+        <% end %>
+      </div>
+    </div>
+    <br>
+    <div class="actions">
+      <%= button_tag type: "submit", class: "btn btn-success" do %>
+        <i class="glyphicon glyphicon-search"></i><%= t "buttons.search" %>
       <% end %>
     </div>
-  </div>
+  <% end %>
   <br>
-  <div class="actions">
-    <%= button_tag type: "submit", class: "btn btn-success" do %>
-      <i class="glyphicon glyphicon-search"></i><%= t "buttons.search" %>
-    <% end %>
+  <table id="book" class="table table-hover table-bordered text-center">
+    <tbody>
+      <tr>
+        <th class="text-center success">
+          <%= sort_link @search, :title, t("books.headers.title") %>
+        </th>
+        <th class="text-center success">
+          <%= sort_link @search, :author, t("books.headers.author") %>
+        </th>
+        <th class="text-center success">
+          <%= sort_link @search, :number_of_pages, t("books.headers.number_of_pages") %>
+        </th>
+        <th class="text-center success">
+          <%= sort_link @search, :publish_date, t("books.headers.publish_date") %>
+        </th>
+        <th class="text-center success">
+          <%= sort_link @search, :category, t("categories.headers.name") %>
+        </th>
+      </tr>
+      <%= render @books %>
+    </tbody>
+  </table>
+  <div class="clear"></div>
+<% else %>
+  <div class="td-book-index">
+    <div id="main">
+      <div class="inner">
+        <section class="tiles">
+          <% @books.each do |book| %>
+            <article>
+              <%= link_to book_path(book) do %>
+                <span class="image">
+                  <% if book.image %>
+                    <%= image_tag book.image %>
+                  <% else %>
+                    <%= image_tag "book.jpg" %>
+                  <% end %>
+                </span>
+                <div class="td-book-infor">
+                  <h3><%= book.title %></h3>
+                  <span><%= book.author %></span>
+                </div>
+              <% end %>
+            </article>
+          <% end %>
+          <div class="td-wrap-pagination" style="text-align: center; width: 100%;
+            padding: 30px 0;">
+            <%= paginate @books %>
+          </div>
+        </section>
+      </div>
+    </div>
   </div>
 <% end %>
-<br>
-<table id="book" class="table table-hover table-bordered text-center">
-  <tbody>
-    <tr>
-      <th class="text-center success">
-        <%= sort_link @search, :title, t("books.headers.title") %>
-      </th>
-      <th class="text-center success">
-        <%= sort_link @search, :author, t("books.headers.author") %>
-      </th>
-      <th class="text-center success">
-        <%= sort_link @search, :number_of_pages, t("books.headers.number_of_pages") %>
-      </th>
-      <th class="text-center success">
-        <%= sort_link @search, :publish_date, t("books.headers.publish_date") %>
-      </th>
-      <th class="text-center success">
-        <%= sort_link @search, :category, t("categories.headers.name") %>
-      </th>
-    </tr>
-    <%= render @books %>
-  </tbody>
-</table>
-<div class="clear"></div>

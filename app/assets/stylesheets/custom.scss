@@ -214,9 +214,14 @@ footer {
     height: 60px;
   }
 
+  li {
+    border: none;
+    height: 60px;
+  }
+
   nav {
     a {
-      padding-top: 20px !important;
+      padding-top: 20px;
     }
   }
 
@@ -341,4 +346,17 @@ footer {
 .td-right-nav {
   position: fixed;
   right: 0;
+}
+
+.full-height {
+  height: 100%;
+
+  a {
+    display: block;
+
+    img {
+      width: 35px;
+      height: 25px;
+    }
+  }
 }
