@@ -3,6 +3,7 @@ class RatingsController < ApplicationController
 
   def create
     @rating = Rating.create rating_params
+    @book.reload
     respond_to do |format|
       format.js
     end
@@ -11,6 +12,7 @@ class RatingsController < ApplicationController
   def update
     @rating = Rating.find_by id: params[:id]
     @rating.update_attributes rating_params
+    @book.reload
     respond_to do |format|
       format.js
     end

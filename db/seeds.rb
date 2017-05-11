@@ -64,10 +64,10 @@ Book.create!([
 
 10.times do |n|
   Review.create! content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged",
-    book_id: n+1, user_id: 2
+    book_id: n + 1, user_id: 2
+end
+
+10.times do |n|
+  Rating.create! rating: 3, user_id: 1, book_id: n + 1, review_id: n + 1
 end
 Comment.create! content: "HHHH", review_id: 1, user_id: 1
-
-11.times do |n|
-  Rating.create! rating: 3.5, user_id: 1, book_id: n+1
-end

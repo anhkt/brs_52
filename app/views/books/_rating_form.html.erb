@@ -10,7 +10,7 @@
       <span class="rating-stars">
         <i class="fa fa-remove rating-star star-0" data-index="0"></i>
         <% 1.upto 5 do |index| %>
-          <i class="fa fa-star rating-star star-<%= index %>
+          <i class="fa fa-star rating-star submit star-<%= index %>
             <%= index <= @rating.rating ? 'rate' : '' %>"
             data-index="<%= index %>"></i>
         <% end %>

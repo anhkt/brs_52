@@ -41,6 +41,10 @@
             </ul>
           </span>
         <% end %>
+        <div>
+          <%= render "ratings/stars",
+            rating: @review.rating ? @review.rating.rating : 0 %>
+        </div>
         <div class="timestamp">
           <%= t "posted_ago", time: time_ago_in_words(@review.created_at) %>
         </div>

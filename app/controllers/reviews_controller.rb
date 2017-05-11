@@ -3,6 +3,7 @@ class ReviewsController < ApplicationController
   load_resource :book, only: [:new, :create]
 
   def new
+    @rating = @review.rating || @review.build_rating
   end
 
   def create
@@ -20,6 +21,7 @@ class ReviewsController < ApplicationController
   end
 
   def edit
+    @rating = @review.rating || @review.build_rating
   end
 
   def update

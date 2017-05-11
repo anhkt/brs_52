@@ -29,22 +29,7 @@
         </div>
         <div class="col-sm-7">
           <div class="book-rating">
-            <% rating = round_rating @book_challenge.first.ratings
-              .plus.average(:rating) %>
-            <% 1.upto 5 do |index| %>
-              <%
-                star =
-                  if index <= rating
-                    "fa-star"
-                  elsif index - 0.5 == rating
-                    "fa-star-half-o"
-                  else
-                    "fa-star-o"
-                  end
-              %>
-
-              <i class="fa <%= star %> rate"></i>
-            <% end %>
+            <%= render "ratings/stars", rating: @book_challenge.first.rating %>
           </div>
           <div class="book-status-<%= @user_book.book_id %>">
             <%= render "user_books/change_statuses", user_book: @user_book %>
@@ -70,6 +55,8 @@
               <div class="user inline-block">
                 <%= link_to review.user.name, user_path(review.user) %>
                 <%= t "books.rated_it" %>
+                <%= render "ratings/stars",
+                  rating: review.rating ? review.rating.rating : 0 %>
               </div>
               <div class="time-create-review inline-block float-right">
                 <%= time_ago_in_words review.created_at %>
