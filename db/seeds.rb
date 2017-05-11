@@ -67,7 +67,7 @@ Book.create!([
     book_id: n + 1, user_id: 2
 end
 
-10.times do |n|
+11.times do |n|
   Rating.create! rating: 3, user_id: 1, book_id: n + 1, review_id: n + 1
 end
 Comment.create! content: "HHHH", review_id: 1, user_id: 1
