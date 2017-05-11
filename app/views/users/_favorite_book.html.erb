@@ -1,0 +1,23 @@
+<div class="tab-panel user-favorite-book" id="favorite_books">
+  <% @favorite_books.each do |book| %>
+    <div class="col-sm-3 book-show-category">
+      <p class="book-rate">
+        <%= pluralize book.ratings.plus.count, t("books.rating") %>
+      </p>
+      <div class="book-image">
+        <%= link_to book_path(book) do %>
+          <%= image_tag image_book(book), class: "img-responsive img-book" %>
+        <% end %>
+      </div>
+      <div class="book-status-<%= book.id %>">
+        <%= render "user_books/change_statuses", user_book: mark_book(book) %>
+      </div>
+      <div class="book-rating text-center">
+        <%= render "ratings/stars", rating: book.rating %>
+      </div>
+    </div>
+  <% end %>
+  <div class="clearfix"></div>
+</div>
+<%= link_to t('.back', default: 'Back'), :back %>
+</div>

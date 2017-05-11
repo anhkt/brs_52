@@ -105,3 +105,28 @@
     }
   }
 }
+
+.favorite-icon {
+  i {
+    color: #ea4444;
+  }
+}
+
+.user-favorite-book {
+  .book-rate {
+    color: #683205;
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0;
+    padding: 5px;
+    text-align: center;
+  }
+
+  .book-image {
+    margin-bottom: 20px;
+  }
+
+  .img-book {
+    height: 250px;
+  }
+}

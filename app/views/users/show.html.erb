@@ -17,10 +17,16 @@
               <%= t "users.tabs.settings" %>
             </a>
           </li>
+          <li>
+            <a href="#favorite_books" data-toggle="tab">
+              <%= t "users.tabs.favorite_books" %>
+            </a>
+          </li>
         </ul>
         <div class="tab-content">
           <%= render "activity_tab" %>
           <%= render "setting_tab" %>
+          <%= render "favorite_book" %>
         </div>
       </div>
     </div>
