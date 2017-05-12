@@ -9,11 +9,9 @@
           <%= image_tag image_book(book), class: "img-responsive img-book" %>
         <% end %>
       </div>
-      <div class="book-status-<%= book.id %>">
-        <%= render "user_books/change_statuses", user_book: mark_book(book) %>
-      </div>
-      <div class="book-rating text-center">
-        <%= render "ratings/stars", rating: book.rating %>
+      <div class="book-favorite-details text-center">
+        <h3><%= book.title %></h3>
+        <p><span>by</span><i><%= book.author %></i></p>
       </div>
     </div>
   <% end %>
