@@ -30,9 +30,9 @@ ActiveRecord::Schema.define(version: 20170507171700) do
     t.datetime "publish_date"
     t.integer  "number_of_pages"
     t.integer  "category_id"
-    t.float    "rating"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.float    "rating",          default: 0.0
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.index ["category_id"], name: "index_books_on_category_id"
   end
 
