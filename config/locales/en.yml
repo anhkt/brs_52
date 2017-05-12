@@ -86,6 +86,7 @@ en:
       update: "Update book"
       unfavorite: "Unfavorite"
       favourite: "Favourite"
+      destroy: "Delete"
     by: "by %{author}"
     more: "(more)"
     less: "(less)"
@@ -161,3 +162,4 @@ en:
     google: "Google"
     zalo: "Zalo"
   author: "Author"
+  col_action: "Action"

@@ -31,7 +31,7 @@ class Admin::BooksController < ApplicationController
   def update
     if @book.update_attributes book_params
       flash[:success] = flash_message "updated"
-      redirect_to [:admin, @book]
+      redirect_to [:admin, @book.category]
     else
       flash[:alert] = flash_message "not_updated"
       render :edit
