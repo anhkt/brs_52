@@ -1,7 +1,7 @@
 <% provide :title, t("home") %>
 <div class="home-page">
   <% if user_signed_in? %>
-    <div class="col-sm-3 td-left-nav">
+    <div class="col-sm-3">
       <div class="td-right-nav-title">
         <h4>
           <%= image_tag "book.svg" %>
@@ -39,12 +39,23 @@
       </div>
       <hr>
       <div class="td-right-nav-footer">
-        <h3>Want to read?</h3>
-        <%= link_to "View all book", books_path %>
+        <h3>
+          Want to read?
+          <%= link_to "View all book", books_path %>
+        </h3>
+        <ul class="home-list-category">
+          <% @categories.each do |category| %>
+            <%= link_to category_path(category) do %>
+              <li class="text-center">
+                <%= category.name %>
+              </li>
+            <% end %>
+          <% end %>
+        </ul>
         <div class="td-view-all-book"></div>
       </div>
     </div>
-    <div class="col-sm-6 col-sm-offset-3 padding-50">
+    <div class="col-sm-6 padding-50">
       <% @reviews.each do |review| %>
         <div class="review review-<%= review.id %> clearfix">
           <div class="col-sm-12 td-user-review-title">
@@ -64,7 +75,29 @@
             </div>
           </div>
           <div class="col-sm-12 td-user-review-content">
-            <div class="col-md-12">
+            <div class="col-md-4">
+              <% if review.book.image %>
+                <%= image_tag review.book.image,
+                  class: "img-responsive review-book-image" %>
+              <% else %>
+                <%= image_tag "book.jpg",
+                  class: "img-responsive review-book-image" %>
+              <% end %>
+            </div>
+            <div class="col-md-8 td-user-review-content-right">
+              <h3>
+                <%= link_to book_path(review.book) do %>
+                  <%= review.book.title %>
+                <% end %>
+              </h3>
+
+              <i>by <%= review.book.author %></i>
+
+              <div class="book-status-<%= review.book.id %> book-review-change">
+                <%= render "user_books/change_statuses",
+                  user_book: mark_book(review.book) %>
+              </div>
+
               <% if strip_tags(review.content).length > 300 %>
                 <div class="content-review-less">
                   <%= truncate strip_tags(review.content), length: 200 %>
@@ -82,7 +115,8 @@
                 </div>
               <% end %>
             </div>
-
+            <div class="clearfix"></div>
+            <hr>
             <div class="col-md-12 like">
               <span class="review-like-<%= review.id %>">
                 <% if current_user.like review %>

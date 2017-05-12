@@ -14,6 +14,7 @@ class PagesController < ApplicationController
             current_user.user_books.new book: @book_challenge.first
           end
         @reviews = Review.all
+        @categories = Category.all
       else
         @review_randoms = Review.where(id: Review.new.random_ids(3, Review.name))
         @book_randoms = Book.where(id: Book.new.random_ids(5, Book.name))
