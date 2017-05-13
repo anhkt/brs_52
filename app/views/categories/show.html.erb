@@ -5,68 +5,72 @@
       <div class="clearfix"></div>
       <ul class="td-list-categories text-right">
         <% @categories.each do |category| %>
-          <li class="category-<%= category.id %>">
-            <p><%= category.name %></p>
-            <p class="view-result">
-              View result <i class="fa fa-arrow-right" aria-hidden="true"></i>
-            </p>
-          </li>
+          <%= link_to category_path(category) do %>
+            <li class="category-<%= category.id %>">
+              <p><%= category.name %></p>
+              <p class="view-result">
+                View result <i class="fa fa-arrow-right" aria-hidden="true"></i>
+              </p>
+            </li>
+          <% end %>
         <% end %>
       </ul>
     </div>
   </div>
   <div class="col-sm-7 td-show-category-content">
-    <div class="td-best-book">
-      <h1 class="text-left">Best <%= @category.name %>'s book</h1>
-      <div class="gcaDivider">
-        <div class="gcaDivider__centerpiece"></div>
-      </div>
-      <div class="show-best-book">
-        <div class="col-sm-3">
-          <%= link_to book_path(@best_book) do %>
-            <%= image_tag image_book(@best_book), class: "img-responsive img-book" %>
-          <% end %>
+    <% if @best_book %>
+      <div class="td-best-book">
+        <h1 class="text-left">Best <%= @category.name %>'s book</h1>
+        <div class="gcaDivider">
+          <div class="gcaDivider__centerpiece"></div>
         </div>
-        <div class="col-sm-6">
-          <div class="book-title">
-            <p>
-              <%= render "books/book_rating", book: @best_book %>
-            </p>
-            <%= link_to book_path @best_book do %>
-              <h3><%= @best_book.title %></h3>
+        <div class="show-best-book">
+          <div class="col-sm-3">
+            <%= link_to book_path(@best_book) do %>
+              <%= image_tag image_book(@best_book), class: "img-responsive img-book" %>
             <% end %>
-            <p class="best-book-author"><%= t "books.by_author" %><span>
-              <%= @best_book.author %></span></p>
           </div>
-          <div class="book-description">
-            <p>
-              <% if strip_tags(@best_book.description).length > 300 %>
-                <div class="description-less">
-                  <%= truncate strip_tags(@best_book.description), length: 300 %>
-                  <%= link_to t("books.more"), "#", class: "show-more", remote: true %>
-                </div>
-                <div class="description-full hidden">
-                  <%= @best_book.description.html_safe %>
-                  <%= link_to t("books.less"), "#", class: "show-less", remote: true %>
-                </div>
-              <% else %>
-                <div class="description-full">
-                  <%= @best_book.description.html_safe %>
-                </div>
+          <div class="col-sm-6">
+            <div class="book-title">
+              <p>
+                <%= render "books/book_rating", book: @best_book %>
+              </p>
+              <%= link_to book_path @best_book do %>
+                <h3><%= @best_book.title %></h3>
               <% end %>
-            </p>
+              <p class="best-book-author"><%= t "books.by_author" %><span>
+                <%= @best_book.author %></span></p>
+            </div>
+            <div class="book-description">
+              <p>
+                <% if strip_tags(@best_book.description).length > 300 %>
+                  <div class="description-less">
+                    <%= truncate strip_tags(@best_book.description), length: 300 %>
+                    <%= link_to t("books.more"), "#", class: "show-more", remote: true %>
+                  </div>
+                  <div class="description-full hidden">
+                    <%= @best_book.description.html_safe %>
+                    <%= link_to t("books.less"), "#", class: "show-less", remote: true %>
+                  </div>
+                <% else %>
+                  <div class="description-full">
+                    <%= @best_book.description.html_safe %>
+                  </div>
+                <% end %>
+              </p>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="book-status-<%= @user_book.book_id %>">
+              <%= render "user_books/change_statuses", user_book: @user_book %>
+            </div>
           </div>
         </div>
-        <div class="col-sm-3">
-          <div class="book-status-<%= @user_book.book_id %>">
-            <%= render "user_books/change_statuses", user_book: @user_book %>
-          </div>
-        </div>
+        <div class="clearfix"></div>
+        <div class="gcaSideFlourish gcaSideFlourish--left"></div>
+        <div class="gcaSideFlourish gcaSideFlourish--right"></div>
       </div>
-      <div class="clearfix"></div>
-      <div class="gcaSideFlourish gcaSideFlourish--left"></div>
-      <div class="gcaSideFlourish gcaSideFlourish--right"></div>
-    </div>
+    <% end %>
     <div class="book">
       <h2 class="td-list-book-title text-left">
         <span>

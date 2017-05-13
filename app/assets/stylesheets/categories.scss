@@ -89,6 +89,14 @@
   .td-list-categories {
     padding: 0 !important;
 
+    a {
+      color: #333;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
     li {
       list-style: none;
       padding: 10px;

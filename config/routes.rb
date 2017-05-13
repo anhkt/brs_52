@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     devise_for :users
     mount Ckeditor::Engine => "/ckeditor"
 
-    root "pages#show", page: "home"
+    root "pages#show", name_page: "home"
     get "/pages/*page" => "pages#show"
 
     resources :books do

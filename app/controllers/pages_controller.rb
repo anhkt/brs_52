@@ -13,13 +13,13 @@ class PagesController < ApplicationController
           else
             current_user.user_books.new book: @book_challenge.first
           end
-        @reviews = Review.all
+        @reviews = Review.order_by_created_at.page(params[:page]).per_page 5
         @categories = Category.all
       else
         @review_randoms = Review.where(id: Review.new.random_ids(3, Review.name))
         @book_randoms = Book.where(id: Book.new.random_ids(5, Book.name))
       end
-      render template: "pages/#{params[:page]}"
+      render template: "pages/#{params[:name_page]}"
     else
       render file: "public/404.html", status: :not_found
     end
@@ -28,6 +28,6 @@ class PagesController < ApplicationController
   private
 
   def valid_page?
-    File.exist?(Pathname.new(Rails.root + "app/views/pages/#{params[:page]}.html.erb"))
+    File.exist?(Pathname.new(Rails.root + "app/views/pages/#{params[:name_page]}.html.erb"))
   end
 end
