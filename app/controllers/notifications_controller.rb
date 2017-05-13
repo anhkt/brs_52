@@ -28,6 +28,8 @@ class NotificationsController < ApplicationController
       redirect_to @notification.notifiable
     when "banned"
       redirect_to root_path
+    when "reviewed"
+      redirect_to @notification.notifiable
     end
   end
 end

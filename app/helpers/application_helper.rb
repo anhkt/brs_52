@@ -60,6 +60,8 @@ module ApplicationHelper
       "#{notification.user.email} #{notification.action} review!"
     when "banned"
       "#{notification.user.email} #{notification.action} your review!"
+    when "reviewed"
+      "#{notification.user.email} #{notification.action} #{notification.notifiable.title}"
     end
   end
 

@@ -3,7 +3,7 @@ class Comment < ApplicationRecord
 
   acts_as_tree order: "created_at DESC"
 
-  belongs_to :review
+  belongs_to :review, touch: true
   belongs_to :user
 
   has_many :likes, as: :likeable
