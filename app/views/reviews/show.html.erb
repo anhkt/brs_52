@@ -74,9 +74,9 @@
 
   <div class="col-md-3 book">
     <div class="book-avatar">
-      <%= book_image @review.book %>
+      <%= link_to book_image(@review.book), @review.book %>
       <div class="text-center">
-        <p class="title"><%= @review.book.title %></p>
+        <p class="title"><%= link_to @review.book.title, @review.book %></p>
         <p><em><%= @review.book.author %></em></p>
       </div>
       <div class="book-status-<%= @user_book.book_id %>">
