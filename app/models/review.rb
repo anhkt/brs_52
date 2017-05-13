@@ -1,8 +1,12 @@
 class Review < ApplicationRecord
   include RandomRecord
 
+  paginates_per 8
+
   ATTRIBUTE_PARAMS = [:content, :book_id, :user_id,
     rating_attributes: [:id, :rating, :book_id, :user_id]]
+
+  scope :order_by_created_at, -> {order created_at: :desc}
 
   belongs_to :book
   belongs_to :user
