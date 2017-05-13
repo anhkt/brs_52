@@ -18,6 +18,13 @@ class ReviewsController < ApplicationController
 
   def show
     @comment = Comment.new
+
+    @user_book =
+      if current_user.mark_book? @review.book
+        current_user.user_books.find_by book: @review.book
+      else
+        current_user.user_books.new book: @review.book
+      end
   end
 
   def edit

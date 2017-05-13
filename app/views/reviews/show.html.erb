@@ -72,8 +72,17 @@
     </div>
   </div>
 
-  <div class="col-md-3">
-
+  <div class="col-md-3 book">
+    <div class="book-avatar">
+      <%= book_image @review.book %>
+      <div class="text-center">
+        <p class="title"><%= @review.book.title %></p>
+        <p><em><%= @review.book.author %></em></p>
+      </div>
+      <div class="book-status-<%= @user_book.book_id %>">
+        <%= render "user_books/change_statuses", user_book: @user_book %>
+      </div>
+    </div>
   </div>
 </div>
 <%= render "reports/report_modal" %>
