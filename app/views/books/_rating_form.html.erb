@@ -8,7 +8,7 @@
   <div class="col-md-12">
     <div class="form-group">
       <span class="rating-stars">
-        <i class="fa fa-remove rating-star star-0" data-index="0"></i>
+        <i class="fa fa-remove rating-star submit star-0" data-index="0"></i>
         <% 1.upto 5 do |index| %>
           <i class="fa fa-star rating-star submit star-<%= index %>
             <%= index <= @rating.rating ? 'rate' : '' %>"

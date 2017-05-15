@@ -11,10 +11,10 @@ class Review < ApplicationRecord
   belongs_to :book, touch: true
   belongs_to :user
 
-  has_one :rating
+  has_one :rating, dependent: :destroy
 
   has_many :comments, dependent: :destroy
-  has_many :likes, as: :likeable
+  has_many :likes, as: :likeable, dependent: :destroy
   has_many :reports, dependent: :destroy
 
   after_create :create_notification

@@ -6,6 +6,7 @@ class Rating < ApplicationRecord
   belongs_to :review
 
   after_save :calc_book_rating
+  after_destroy :calc_book_rating
 
   scope :plus, ->{where "rating > 0"}
 
