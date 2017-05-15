@@ -6,7 +6,7 @@ class Comment < ApplicationRecord
   belongs_to :review, touch: true
   belongs_to :user
 
-  has_many :likes, as: :likeable
+  has_many :likes, as: :likeable, dependent: :destroy
 
   after_create :create_comments
 
