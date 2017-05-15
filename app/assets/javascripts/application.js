@@ -83,7 +83,8 @@ $(document).on('turbolinks:load', function() {
     .done(function() {
       $('.number-noti').remove()
     });
-  })
+  });
+
 });
 
 function set_timetout() {

@@ -7,11 +7,11 @@
   <% end %>
 </a>
 <ul class="dropdown-menu">
-  <li>
-    <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 200px;">
-      <ul class="menu" style="overflow: hidden; width: 100%; height: 200px;">
+  <li style="height: 200px; overflow-y: auto" class="slimScrollDiv">
+    <div style="position: relative; width: auto;">
+      <ul class="menu" style="width: 100%; height: 100%;">
         <% user.notifications.order(created_at: :desc).each do |notification| %>
-          <li>
+          <li class="td-notification-item">
             <%= link_to display_notification(notification), notification, method: :patch %>
           </li>
         <% end %>
