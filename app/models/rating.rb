@@ -16,7 +16,7 @@ class Rating < ApplicationRecord
   end
 
   def round_rating
-    rating = self.book.ratings.plus.average :rating
+    rating = self.book.ratings.plus.average(:rating) || 0
     (rating * 2).round / 2.0
   end
 end

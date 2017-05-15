@@ -50,9 +50,9 @@
         </div>
       </div>
       <div class="panel-body">
-        <p class="content">
+        <div class="content">
           <%= @review.content.html_safe %>
-        </p>
+        </div>
         <span class="review-like-<%= @review.id %>">
           <% if current_user.like @review %>
             <%= render "likes/dislikes", like: current_user.like(@review), target: @review %>
