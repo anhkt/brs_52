@@ -23,6 +23,9 @@ class Review < ApplicationRecord
 
   accepts_nested_attributes_for :rating
 
+  validates :content, presence: true
+  validate :rating_must_present
+
   private
   def remove_notification
     Notification.where(notifiable: self).destroy_all
@@ -38,6 +41,12 @@ class Review < ApplicationRecord
     self.user.followers.each do |follower|
       Notification.create recipient: follower, user: self.user,
         action: "reviewed", notifiable: self.book
+    end
+  end
+
+  def rating_must_present
+    if rating[:rating].blank? || rating[:rating] == 0
+      errors.add :rating, "must be present"
     end
   end
 end

@@ -26,7 +26,11 @@ $(document).on('turbolinks:load', function() {
       $('.star-' + i).removeClass('rate');
     }
     if ($(this).hasClass('submit')) {
-      $(this).closest('form').submit();
+      var form = $(this).closest('form');
+      if (selected == 0) {
+        form.prop('method', 'DELETE');
+      }
+      form.submit();
     }
   });
 })

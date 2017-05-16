@@ -3,10 +3,11 @@ class ReviewsController < ApplicationController
   load_resource :book, only: [:new, :create]
 
   def new
-    @rating = @review.rating || @review.build_rating
+    @rating = @review.build_rating
   end
 
   def create
+    @rating = @review.rating || @review.build_rating
     if @review.save
       flash[:success] = flash_message "created"
       redirect_to @review
@@ -28,10 +29,11 @@ class ReviewsController < ApplicationController
   end
 
   def edit
-    @rating = @review.rating || @review.build_rating
+    @rating = @review.rating
   end
 
   def update
+    @rating = @review.rating || @review.build_rating
     if @review.update_attributes review_params
       flash[:success] = flash_message "updated"
       redirect_to @review
